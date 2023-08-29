@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_29_085830) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_29_114835) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -18,10 +18,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_29_085830) do
     t.float "total_price"
     t.string "payment_status"
     t.bigint "table_id", null: false
-    t.bigint "order_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["order_id"], name: "index_baskets_on_order_id"
     t.index ["table_id"], name: "index_baskets_on_table_id"
   end
 
@@ -30,6 +28,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_29_085830) do
     t.bigint "product_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "basket_id"
+    t.text "comments"
+    t.index ["basket_id"], name: "index_orders_on_basket_id"
     t.index ["product_id"], name: "index_orders_on_product_id"
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
@@ -75,7 +76,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_29_085830) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "baskets", "orders"
   add_foreign_key "baskets", "tables"
   add_foreign_key "orders", "products"
   add_foreign_key "orders", "users"
