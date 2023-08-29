@@ -31,7 +31,9 @@ class ProductsController < ApplicationController
   end
 
   def destroy
-
+    @product = Product.find(params[:id])
+    @product.destroy
+    redirect_to restaurant_products_path, status: :see_other
   end
 
   private
