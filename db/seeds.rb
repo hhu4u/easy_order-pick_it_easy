@@ -20,6 +20,10 @@ customer.save
 puts "Creating restaurants"
 restaurant = Restaurant.new(name: "Selecto", address: "Rue de Flandre 95, 1000 Bruxelles")
 restaurant.user = owner
+file = URI.open("https://www.royalfestival.be/wp-content/uploads/elementor/thumbs/Royal-Festival-de-Spa-2022-Dimanche-14-aout-31-q6lk609kkw7ivipjdobfafwdncq7oqw864m65uqun4.jpg")
+restaurant.photo.attach(io: file, filename: "terasse.jpg", content_type: "image/jpg")
+restaurant.save
+
 restaurant.save
 
 puts "Creating products"
