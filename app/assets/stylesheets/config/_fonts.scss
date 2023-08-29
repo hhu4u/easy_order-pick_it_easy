@@ -2,8 +2,28 @@
 @import url('https://fonts.googleapis.com/css?family=Nunito:400,700|Work+Sans:400,700&display=swap');
 
 // Define fonts for body and headers
-$body-font: "Work Sans", "Helvetica", "sans-serif";
-$headers-font: "Nunito", "Helvetica", "sans-serif";
+// $body-font: "Work Sans", "Helvetica", "sans-serif";
+// $headers-font: "Nunito", "Helvetica", "sans-serif";
+$body-font: 'Roboto Slab', serif;
+$headers-font: 'Libre Baskerville', serif;
+$dark-font-color: rgb(10, 9, 8);
+$medium-font-color: rgb(67, 67, 67);
+$light-font-color: rgb(109, 109, 109);
+$main-bg-color: #f4f3ee;
+$card-bg-color: #f8f9fa;
+
+
+
+// :root {
+//   --main-title-font: 'Libre Baskerville', serif;
+//   --secondary-title-font: 'Overpass', sans-serif;
+//   --card-bg-color: rgb(247, 243, 243);
+//   --cardtitle-font-family: 'Arvo', serif;
+//   --card-font-family: serif;
+//   --carddescription-font-family: 'Roboto Slab', serif;
+
+// }
+
 
 // To use a font file (.woff) uncomment following lines
 // @font-face {
