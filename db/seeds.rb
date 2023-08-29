@@ -23,7 +23,7 @@ restaurant.user = owner
 restaurant.save
 
 puts "Creating products"
-product1 = Product.new(name: "Hamburger classico", price: 12.00, description: "Tasty beef meet")
+product1 = Product.new(name: "Hamburger classico", price: 12.00, description: "Tasty beef meet", dish_type: "Main Courses")
 product1.restaurant = restaurant
 product1.save
 
