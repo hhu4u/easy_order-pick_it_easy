@@ -27,8 +27,10 @@ restaurant.save
 restaurant.save
 
 puts "Creating products"
+file = URI.open("https://www.thecookierookie.com/wp-content/uploads/2023/04/featured-stovetop-burgers-recipe.jpg")
 product1 = Product.new(name: "Hamburger classico", price: 12.00, description: "Tasty beef meet", dish_type: "Main Courses")
 product1.restaurant = restaurant
+restaurant.photo.attach(io: file, filename: "burger.jpg", content_type: "image/jpg")
 product1.save
 
 puts "Seeds completed"
