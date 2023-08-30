@@ -1,8 +1,9 @@
 class OrdersController < ApplicationController
   def create
     @order = Order.new(order_params)
-    @user = User.find(params[:user_id])
-    @order.user = @user
+    raise
+    # @user = User.find(params[:user_id])
+    @order.user = current_user
     @product = Product.find(params[:product_id])
     @order.product = @product
     if @order.save
@@ -21,6 +22,6 @@ class OrdersController < ApplicationController
   private
 
   def order_params
-    params.require(:order).permit(:comment)
+    params.require(:order).permit(:comments)
   end
 end
