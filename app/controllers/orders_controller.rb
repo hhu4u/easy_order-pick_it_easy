@@ -1,10 +1,9 @@
 class OrdersController < ApplicationController
   def create
+    # raise
     @order = Order.new(order_params)
-    raise
-    # @user = User.find(params[:user_id])
     @order.user = current_user
-    @product = Product.find(params[:product_id])
+    @product = Product.find(params[:order][:product_id])
     @order.product = @product
     if @order.save
       redirect_to root_path
