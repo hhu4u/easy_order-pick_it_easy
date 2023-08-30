@@ -1,4 +1,28 @@
-<h1><%= @restaurant.name %></h1>
-<p><%= @restaurant.address %></p>
-<%= link_to "Edit restaurant", edit_restaurant_path  %>
-<%= link_to "Back to Restaurants", restaurants_path  %>
+<div class="container">
+  <h1><%= @restaurant.name %></h1>
+  <p><%= @restaurant.address %></p>
+  <ul class="list-inline tabs-underlined">
+    <% Product::DISH_TYPE.each do |type|  %>
+      <li>
+      <a href="#<%= type.downcase.tr(" ", "-") %>" class="tab-underlined"><%= type %></a>
+    </li>
+    <% end %>
+  </ul>
+  <div class="sections">
+    <% Product::DISH_TYPE.each do |type|  %>
+      <div id="<%= type.downcase.tr(" ", "-") %>">
+      <h4><%= type %></h4>
+        <%@restaurant.products.where(dish_type: type).each do |product|%>
+          <div class="card-product">
+            <h4><%= product.name %></h4>
+            <p><%= product.price %></p>
+            <p><%= product.description %></p>
+            <%= cl_image_tag product.photo.key, width: 400, height: 300, crop: :fill %>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+  <%= link_to "Edit restaurant", edit_restaurant_path  %>
+  <%= link_to "Back to Restaurants", restaurants_path  %>
+</div>

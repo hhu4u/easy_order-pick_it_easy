@@ -25,10 +25,12 @@ restaurant.photo.attach(io: file, filename: "terasse.jpg", content_type: "image/
 restaurant.save
 
 puts "Creating products"
+file = URI.open("https://www.thecookierookie.com/wp-content/uploads/2023/04/featured-stovetop-burgers-recipe.jpg")
 product1 = Product.new(name: "Hamburger classico", price: 12.00, description: "Tasty beef meet", dish_type: "Main Courses")
 file = URI.open("https://wallpapercave.com/wp/wp1987065.jpg")
 product1.photo.attach(io: file, filename: "1.jpg", content_type: "image/jpg")
 product1.restaurant = restaurant
+restaurant.photo.attach(io: file, filename: "burger.jpg", content_type: "image/jpg")
 product1.save
 
 product2 = Product.new(name: "Real Italian Lasagna", price: 18.00, description: "Crispy and golden on the outside and juicy in the middle, so delicious ", dish_type: "Main Courses")
