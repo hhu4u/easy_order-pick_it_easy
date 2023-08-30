@@ -7,6 +7,12 @@ Rails.application.routes.draw do
   # root "articles#index"
 
   resources :restaurants, only: ["new", "create", "update", "edit", "show", "index"] do
-    resources :products, only: ["index", "show", "new", "create", "edit", "update", "destroy"]
+    resources :products, only: ["index", "show", "new", "create", "edit", "update", "destroy"] do
+      resources :orders, only: ["create", "destroy"] do
+      end
+    end
+  end
+  resources :tables, only: ["create", "destroy"] do
+    resources :baskets, only: ["create", "destroy"]
   end
 end
