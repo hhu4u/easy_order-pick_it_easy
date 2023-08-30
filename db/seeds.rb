@@ -7,6 +7,8 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 puts "Clearing database"
+Order.destroy_all
+Table.destroy_all
 Product.destroy_all
 Restaurant.destroy_all
 User.destroy_all
@@ -23,6 +25,15 @@ restaurant.user = owner
 file = URI.open("https://www.royalfestival.be/wp-content/uploads/elementor/thumbs/Royal-Festival-de-Spa-2022-Dimanche-14-aout-31-q6lk609kkw7ivipjdobfafwdncq7oqw864m65uqun4.jpg")
 restaurant.photo.attach(io: file, filename: "terasse.jpg", content_type: "image/jpg")
 restaurant.save
+
+puts "Creating tables"
+i = 1
+20.times do
+  table = Table.new(number: i)
+  table.restaurant = restaurant
+  table.save
+  i += 1
+end
 
 puts "Creating products"
 file = URI.open("https://www.thecookierookie.com/wp-content/uploads/2023/04/featured-stovetop-burgers-recipe.jpg")
@@ -121,7 +132,7 @@ product9.save
 
 product10 = Product.new(name: "Tiramisu",
                         price: 10.00,
-                        ingrients: "Coffee Soaking Syrup, Mascarpone, Ladyfinger cookies",
+                        ingredients: "Coffee Soaking Syrup, Mascarpone, Ladyfinger cookies",
                         description: "Tiramisu is a sophisticated dessert with layers of coffee-soaked ladyfingers and creamy mascarpone mixture.",
                         dish_type: "Desserts")
 file = URI.open("https://th.bing.com/th/id/R.743fbf4cf71f1f43020e981be7e03121?rik=t46AyC8d5qxl4Q&pid=ImgRaw&r=0")
@@ -131,7 +142,7 @@ product10.save
 
 product11 = Product.new(name: "Fruit Parfait",
                         price: 12.00,
-                        ingrients: "Fresh mixed fruits, Yogurt, cerel, maple syrup, Nuts, Fresh mint leaves",
+                        ingredients: "Fresh mixed fruits, Yogurt, cerel, maple syrup, Nuts, Fresh mint leaves",
                         description: "A fruit parfait is a refreshing and healthier dessert option. The layers of Greek yogurt, granola, and fresh fruits provide a satisfying mix of textures and flavors",
                         dish_type: "Desserts")
 file = URI.open("https://bing.com/th?id=OSK.8267302d177279b408cc1a9d9613d616")
@@ -141,7 +152,7 @@ product11.save
 
 product12 = Product.new(name: "Banana Chocolate Chip Muffins",
                         price: 10.00,
-                        ingrients: " bananas, granulated sugar, eggs, unsalted butter, chocolate chips, chopped nuts",
+                        ingredients: " bananas, granulated sugar, eggs, unsalted butter, chocolate chips, chopped nuts",
                         description: "Banana chocolate chip muffins are a fantastic way to use up ripe bananas and enjoy a sweet treat.",
                         dish_type: "Desserts")
 file = URI.open("https://bing.com/th?id=OSK.089221ea88cb80e2bd93318d4a7cf604")
@@ -152,7 +163,7 @@ product12.save
 
 product13 = Product.new(name: "Southern Peach Cobbler",
                         price: 8.00,
-                        ingrients: " fresh peaches, granulated sugar, unsalted butter, lemon juice, cinnamn, nutmeg",
+                        ingredients: " fresh peaches, granulated sugar, unsalted butter, lemon juice, cinnamn, nutmeg",
                         description: "Sweet and juicy with plenty of real peach flavor and just the right touch of cinnamon, this cobbler is the last homemade peach cobbler",
                         dish_type: "Desserts")
 file = URI.open("https://bing.com/th?id=OSK.187951fc01deab3040b433e7af881bc0")
