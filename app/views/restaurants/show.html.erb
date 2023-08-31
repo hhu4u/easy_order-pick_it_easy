@@ -35,6 +35,7 @@
     <% end %>
   </div>
    <div class="d-grid gap-2 rounded mx-auto">
+  <button class="btn btn-dark" type="button"><%= link_to "My basket", table_basket_path(@table, @basket)%></button><br>
   <button class="btn btn-dark" type="button"><%= link_to "Edit restaurant", edit_restaurant_path  %></button><br>
   <button class="btn btn-dark" type="button"><%= link_to "Back to Restaurants", restaurants_path  %></button>
   </div>
