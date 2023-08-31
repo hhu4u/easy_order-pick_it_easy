@@ -1,10 +1,14 @@
 <div class="prod-header" style="background-image: url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
 </div>
-<h4><%= @product.name %></h4>
-<p><%= @product.price %>€</p>
-<p><%= @product.description %></p>
-<%# check if comment goes on @order %>
-<%= simple_form_for [@restaurant, @product, @order] do |f| %>
-  <%= f.input :comments %>
-  <%= f.submit %>
-<% end %>
+<div class="container">
+  <h4><%= @product.name %></h4>
+  <p><%= @product.price %>€</p>
+  <p><%= @product.description %></p>
+  <p>Ingredients:</p>
+  <p><%= @product.ingredients %></p>
+  <%# check if comment goes on @order %>
+  <%= simple_form_for [@restaurant, @product, @order] do |f| %>
+    <%= f.input :comments, label: false, placeholder: "Tell us your preferences" %>
+    <%= f.submit 'Add to cart' %>
+  <% end %>
+</div>
