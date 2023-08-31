@@ -4,8 +4,7 @@
 <p><%= @product.price %>€</p>
 <p><%= @product.description %></p>
 <%# check if comment goes on @order %>
-<%= simple_form_for [@restaurant, @order] do |f| %>
+<%= simple_form_for [@restaurant, @product, @order] do |f| %>
   <%= f.input :comments %>
-  <%= f.hidden_field :product_id, value: @product.id %>
   <%= f.submit %>
 <% end %>
