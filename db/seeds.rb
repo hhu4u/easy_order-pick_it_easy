@@ -121,7 +121,7 @@ product9.save
 
 product10 = Product.new(name: "Tiramisu",
                         price: 10.00,
-                        ingrients: "Coffee Soaking Syrup, Mascarpone, Ladyfinger cookies",
+                        ingredients: "Coffee Soaking Syrup, Mascarpone, Ladyfinger cookies",
                         description: "Tiramisu is a sophisticated dessert with layers of coffee-soaked ladyfingers and creamy mascarpone mixture.",
                         dish_type: "Desserts")
 file = URI.open("https://th.bing.com/th/id/R.743fbf4cf71f1f43020e981be7e03121?rik=t46AyC8d5qxl4Q&pid=ImgRaw&r=0")
@@ -131,7 +131,7 @@ product10.save
 
 product11 = Product.new(name: "Fruit Parfait",
                         price: 12.00,
-                        ingrients: "Fresh mixed fruits, Yogurt, cerel, maple syrup, Nuts, Fresh mint leaves",
+                        ingredients: "Fresh mixed fruits, Yogurt, cerel, maple syrup, Nuts, Fresh mint leaves",
                         description: "A fruit parfait is a refreshing and healthier dessert option. The layers of Greek yogurt, granola, and fresh fruits provide a satisfying mix of textures and flavors",
                         dish_type: "Desserts")
 file = URI.open("https://bing.com/th?id=OSK.8267302d177279b408cc1a9d9613d616")
@@ -141,7 +141,7 @@ product11.save
 
 product12 = Product.new(name: "Banana Chocolate Chip Muffins",
                         price: 10.00,
-                        ingrients: " bananas, granulated sugar, eggs, unsalted butter, chocolate chips, chopped nuts",
+                        ingredients: " bananas, granulated sugar, eggs, unsalted butter, chocolate chips, chopped nuts",
                         description: "Banana chocolate chip muffins are a fantastic way to use up ripe bananas and enjoy a sweet treat.",
                         dish_type: "Desserts")
 file = URI.open("https://bing.com/th?id=OSK.089221ea88cb80e2bd93318d4a7cf604")
@@ -152,12 +152,113 @@ product12.save
 
 product13 = Product.new(name: "Southern Peach Cobbler",
                         price: 8.00,
-                        ingrients: " fresh peaches, granulated sugar, unsalted butter, lemon juice, cinnamn, nutmeg",
+                        ingredients: " fresh peaches, granulated sugar, unsalted butter, lemon juice, cinnamn, nutmeg",
                         description: "Sweet and juicy with plenty of real peach flavor and just the right touch of cinnamon, this cobbler is the last homemade peach cobbler",
                         dish_type: "Desserts")
 file = URI.open("https://bing.com/th?id=OSK.187951fc01deab3040b433e7af881bc0")
 product13.photo.attach(io: file, filename: "13.jpg", content_type: "image/jpg")
 product13.restaurant = restaurant
 product13.save
+
+product14 = Product.new(name: "red wine",
+                        price: 9.00,
+                        dish_type: "Wines")
+file = URI.open("https://th.bing.com/th/id/R.6362a4d8101bd26a0fc75413d674744b?rik=2E%2fIKOB2yIG%2f6A&riu=http%3a%2f%2fregrounding.files.wordpress.com%2f2011%2f06%2fred_wine.jpg&ehk=2Y9a6StVLW%2bwNqnffiEm0%2bZL9zab9l%2b9g8UG%2bkOPAo0%3d&risl=&pid=ImgRaw&r=0")
+product14.photo.attach(io: file, filename: "14.jpg", content_type: "image/jpg")
+product14.restaurant = restaurant
+product14.save
+
+product15 = Product.new(name: "White wine",
+  price: 8.00,
+  dish_type: "Wines")
+file = URI.open("https://th.bing.com/th/id/R.c30d1b9735aa0948f8499a7eb35c8d69?rik=G9PbUHpACmp0uA&riu=http%3a%2f%2fkazzit.com%2fcustom%2fdomain_1%2fimage_files%2fsitemgr_whitewinedry2.jpg&ehk=XItoJzw34uvTEMvwlJscSwb9eTxGgayvQsuaikMpJT0%3d&risl=&pid=ImgRaw&r=0")
+product15.photo.attach(io: file, filename: "15.jpg", content_type: "image/jpg")
+product15.restaurant = restaurant
+product15.save
+
+product16 = Product.new(name: "Rose wine",
+  price: 8.00,
+   dish_type: "Wines")
+file = URI.open("https://th.bing.com/th/id/R.bdeeefc731f1ebca3c4f351346c7ee3f?rik=Lu0TdpjDHvCveg&pid=ImgRaw&r=0")
+product16.photo.attach(io: file, filename: "16.jpg", content_type: "image/jpg")
+product16.restaurant = restaurant
+product16.save
+
+product17 = Product.new(name: "Margarita",
+  price: 9.00,
+  ingredients: "Tequila, lime juice, orange liqueur (such as triple sec or Cointreau), and optionally, a salted rim.",
+  dish_type: "Cocktails")
+file = URI.open("https://delicerecipes.com/wp-content/uploads/2021/01/Frozen-Margarita-Cocktail.jpg")
+product17.photo.attach(io: file, filename: "17.jpg", content_type: "image/jpg")
+product17.restaurant = restaurant
+product17.save
+
+product18 = Product.new(name: "Martini",
+  price: 12.00,
+  ingredients: "Vodka, vermouth, and sometimes garnished with an olive or lemon twist.",
+  dish_type: "Cocktails")
+file = URI.open("https://th.bing.com/th/id/OIP.9cRJxikcOOmYhn_bi9fdiwHaLF?pid=ImgDet&rs=1")
+product18.photo.attach(io: file, filename: "18.jpg", content_type: "image/jpg")
+product18.restaurant = restaurant
+product18.save
+
+product19 = Product.new(name: "Moscow Mule",
+  price: 9.00,
+  ingredients: "Vodka, ginger beer, and lime juice, often garnished with a lime wedge.",
+   dish_type: "Cocktails")
+file = URI.open("https://i.pinimg.com/originals/6c/53/78/6c5378104581dec54026d13e703c3dad.jpg")
+product19.photo.attach(io: file, filename: "19.jpg", content_type: "image/jpg")
+product19.restaurant = restaurant
+product19.save
+
+product20 = Product.new(name: "Mojito",
+  price: 10.00,
+  ingredients: "White rum, fresh mint leaves, lime juice, simple syrup, soda water, and plenty of ice.",
+   dish_type: "Cocktails")
+file = URI.open("https://th.bing.com/th/id/R.b61e87af03c84452e4aeaa38b65a2f89?rik=pmpvRnJhh0svDA&pid=ImgRaw&r=0")
+product20.photo.attach(io: file, filename: "20.jpg", content_type: "image/jpg")
+product20.restaurant = restaurant
+product20.save
+
+product21 = Product.new(name: "Cosmopolitan",
+  price: 12.00,
+  ingredients: "Vodka, cranberry juice, orange liqueur, and freshly squeezed lime juice.",
+   dish_type: "Cocktails")
+file = URI.open("https://i.pinimg.com/originals/ec/69/32/ec69320a94b481e7650f7ff71d77ffc5.jpg")
+product21.photo.attach(io: file, filename: "21.jpg", content_type: "image/jpg")
+product21.restaurant = restaurant
+product21.save
+
+product22 = Product.new(name: "Tonic Water",
+  price: 5.00,
+   dish_type: "Soft drinks")
+file = URI.open("https://th.bing.com/th/id/R.5dc1d6cb2860b4fffa3ac741e9eeabee?rik=g1hpyOB5fUwXlA&riu=http%3a%2f%2fwww.sakshamimpex.com%2fsaksham2015%2fwp-content%2fuploads%2f2015%2f10%2fFever-Tree_BLACK_Cocktail_Indian-Tonic_RGB.jpg&ehk=jOXbUzaSdc%2fiZFkbIvhL%2bvfBIb2ZVtWOw%2fwRw%2fDxiFc%3d&risl=&pid=ImgRaw&r=0")
+product22.photo.attach(io: file, filename: "22.jpg", content_type: "image/jpg")
+product22.restaurant = restaurant
+product22.save
+
+product23 = Product.new(name: "Sprite",
+  price: 4.00,
+   dish_type: "Soft drinks")
+file = URI.open("https://www.churchs.com/wp-content/uploads/2020/10/Churchs-Chicken-Sprite-aspect-ratio-4-3.jpg")
+product23.photo.attach(io: file, filename: "23.jpg", content_type: "image/jpg")
+product23.restaurant = restaurant
+product23.save
+
+product24 = Product.new(name: "Dr Pepper",
+  price: 12.00,
+   dish_type: "Soft drinks")
+file = URI.open("https://th.bing.com/th/id/R.e70ebe79b004b2222ba864017d7056b2?rik=KyiVr3sBtAGzJQ&pid=ImgRaw&r=0")
+product24.photo.attach(io: file, filename: "24.jpg", content_type: "image/jpg")
+product24.restaurant = restaurant
+product24.save
+
+product25 = Product.new(name: "Ginger Ale",
+  price: 12.00,
+   dish_type: "Soft drinks")
+file = URI.open("https://i1.wp.com/readynutrition.com/wp-content/uploads/2015/01/gingerale.jpg?ssl=1")
+product25.photo.attach(io: file, filename: "25.jpg", content_type: "image/jpg")
+product25.restaurant = restaurant
+product25.save
 
 puts "Seeds completed"
