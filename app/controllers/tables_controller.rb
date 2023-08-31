@@ -20,9 +20,10 @@ class TablesController < ApplicationController
     restaurant_id = params[:restaurant_id]
     table_number = params[:table_number]
     restaurant = Restaurant.find(restaurant_id)
+    basket = Basket.new
 
     if restaurant
-      redirect_to restaurant_path(restaurant, table_number: table_number)
+      redirect_to restaurant_path(restaurant, table_number: table_number, basket: basket)
     else
       redirect_to root_path, alert: "Invalid QR code"
     end

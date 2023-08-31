@@ -4,6 +4,9 @@ class OrdersController < ApplicationController
     @order.user = current_user
     @product = Product.find(params[:product_id])
     @order.product = @product
+    current_basket = Basket.where(user: current_user, basket_status: "New").first
+    @order.basket = current_basket
+
     if @order.save
       # change to restaurant path, not root
       # redirect_to restaurant_products_path
