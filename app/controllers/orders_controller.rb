@@ -6,13 +6,21 @@ class OrdersController < ApplicationController
     @product = Product.find(params[:product_id])
     @order.product = @product
     @order.basket = Basket.where(user: current_user, basket_status: "New").first
-
     if @order.save
       # change to restaurant path, not root
       redirect_to restaurant_products_path
     else
       render "products/show", status: :unprocessable_entity
     end
+  end
+
+  def edit
+    @order = Order.find(params[:id])
+  end
+
+  def update
+    @order = Order.find(params[:id])
+    @order.update(params[:order])
   end
 
   def destroy
