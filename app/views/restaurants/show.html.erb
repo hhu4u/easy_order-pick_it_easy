@@ -16,9 +16,9 @@
       <h4><%= type %></h4>
         <%@restaurant.products.where(dish_type: type).each do |product|%>
           <%= link_to restaurant_product_path(@restaurant,product) do %>
-          <div class="card-product d-flex  justify-content-between">
-             <div>
-               <div class="d-flex flex-row px-3 pt-3">
+          <div class="card-product d-flex ">
+             <div class="flex-fill">
+               <div class="d-flex flex-row justify-content-between px-3 pt-3">
                 <h4 class="me-auto"><%= product.name %></h4>
                 <%# <p class="pt-2 pb-1 text-break"><%= product.description </p> %>
                 <h4><%= product.price %>eur</h4>
