@@ -47,7 +47,7 @@ product1.photo.attach(io: file, filename: "1.jpg", content_type: "image/jpg")
 product1.restaurant = restaurant
 product1.save
 
-product2 = Product.new(name: "Real Italian Lasagna",
+product2 = Product.new(name: "Italian Lasagna",
                        price: 18.00,
                        ingredients: "Ground beef, Onion, Garlic cloves, minced, Canned crushed tomatoes, Olive oil, Dried oregano, Dried basil, Bay leaves",
                        description: "Crispy and golden on the outside and juicy in the middle, so delicious.",
@@ -58,7 +58,7 @@ product2.restaurant = restaurant
 product2.save
 
 
-product3 = Product.new(name: "Tagliatelle with Ragù Bolognese",
+product3 = Product.new(name: "Ragù Bolognese",
                        price: 15.00,
                        ingredients: "Ground beef, Onion, Carrot, Celery, Pancetta or bacon, finely, Garlic cloves, tomatoes, Whole milk, wine, Bay leaves",
                        description: "This dish can be more representative of the Bolognese tradition than ragù Bolognese with tagliatelle",
@@ -78,7 +78,7 @@ product4.photo.attach(io: file, filename: "4.jpg", content_type: "image/jpg")
 product4.restaurant = restaurant
 product4.save
 
-product5 = Product.new(name: "Tofu Laksa with Noodles",
+product5 = Product.new(name: "Tofu Laksa",
                        price: 17.00,
                        ingredients: "shallots, garlic, peppers, lemongrass, ginger, firm tofu, rice noodles, assorted vegetables",
                        description: "delicious tofu laksa, a vegetarian version of the Malaysian-spiced soup served with noodles.",
@@ -88,7 +88,7 @@ product5.photo.attach(io: file, filename: "5.jpg", content_type: "image/jpg")
 product5.restaurant = restaurant
 product5.save
 
-product6 = Product.new(name: "Deep-Fried Calamari with Aioli",
+product6 = Product.new(name: "Calamari with Aioli",
                        price: 12.00,
                        ingredients: " calamari, paprika, mayonnaise, lemon juice, garlic",
                        description: "The perfect balance of textures and flavors makes this a classic starter.",
@@ -99,7 +99,7 @@ product6.restaurant = restaurant
 product6.save
 
 
-product7 = Product.new(name: "Mozzarella Caprese Skewers",
+product7 = Product.new(name: "Caprese Skewers",
                        price: 10.00,
                        ingredients: "Fresh mozzarella cheese, Cherry tomatoes, basil leaves, olive oil, Salt and pepper",
                        description: "These colorful caprese salad skewers with bite-sized portions are perfect for holiday parties",
@@ -110,7 +110,7 @@ product7.restaurant = restaurant
 product7.save
 
 
-product8 = Product.new(name: "Crispy Spring Rolls",
+product8 = Product.new(name: "Spring Rolls",
                        price: 8.00,
                        ingredients: "cabbage, carrot, bean sprouts, glass noodles, green onions, mushrooms, garlic, soy sauce",
                        description: "Delight in these crispy spring rolls filled with a medley of vegetables and vermicelli noodles",
@@ -120,7 +120,7 @@ product8.photo.attach(io: file, filename: "8.jpg", content_type: "image/jpg")
 product8.restaurant = restaurant
 product8.save
 
-product9 = Product.new(name: "Chicken Satay Skewers",
+product9 = Product.new(name: "Satay Skewers",
                        price: 8.00,
                        ingredients: " chicken, soy sauce, fish sauce, brown sugar, vegetable oil, cumin, garlic, ginger, cayenne pepper,  Peanut Sauce",
                        description: "Embark on an Asian culinary journey with these tender chicken skewers marinated in fragrant spices and served with a rich peanut sauce.",
@@ -152,7 +152,7 @@ product11.save
 
 product12 = Product.new(name: "Banana Chocolate Chip Muffins",
                         price: 10.00,
-                        ingredients: " bananas, granulated sugar, eggs, unsalted butter, chocolate chips, chopped nuts",
+                        ingredients: " bananas, eggs, unsalted butter, chocolate chips, chopped nuts",
                         description: "Banana chocolate chip muffins are a fantastic way to use up ripe bananas and enjoy a sweet treat.",
                         dish_type: "Desserts")
 file = URI.open("https://bing.com/th?id=OSK.089221ea88cb80e2bd93318d4a7cf604")
@@ -161,7 +161,7 @@ product12.restaurant = restaurant
 product12.save
 
 
-product13 = Product.new(name: "Southern Peach Cobbler",
+product13 = Product.new(name: "Peach Cobbler",
                         price: 8.00,
                         ingredients: " fresh peaches, granulated sugar, unsalted butter, lemon juice, cinnamn, nutmeg",
                         description: "Sweet and juicy with plenty of real peach flavor and just the right touch of cinnamon, this cobbler is the last homemade peach cobbler",
