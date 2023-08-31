@@ -11,13 +11,15 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
+  <body>
+    <%= render "shared/avatar" %>
 
-  <body><%= render "shared/navbar" %>
-<%= render "shared/flashes" %>
+    <%# <body><%= render "shared/navbar" %>
+    <%# <%= render "shared/flashes" %>
 
     <%= yield %>
-    <%# <div class="d-grid gap-2 col-6 mx-auto">
-    <button class="btn btn-dark rounded">button</button>
-    </div> %>
+    <div class="d-grid gap-2 col-6 mx-auto">
+      <button class="btn btn-dark rounded">button</button>
+    </div>
   <body>
 </html>
