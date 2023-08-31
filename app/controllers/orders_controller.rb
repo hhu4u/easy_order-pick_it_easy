@@ -1,12 +1,14 @@
 class OrdersController < ApplicationController
   def create
+    @restaurant = Restaurant.find(params[:restaurant_id])
     @order = Order.new(order_params)
     @order.user = current_user
     @product = Product.find(params[:product_id])
     @order.product = @product
+
     if @order.save
       # change to restaurant path, not root
-      # redirect_to restaurant_products_path
+      redirect_to restaurant_products_path
     else
       render "products/show", status: :unprocessable_entity
     end
