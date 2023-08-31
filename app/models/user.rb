@@ -9,6 +9,7 @@ class User < ApplicationRecord
   has_one_attached :photo
   has_many :orders
   has_many :baskets
+  has_many :restaurants
 
   # private
 
