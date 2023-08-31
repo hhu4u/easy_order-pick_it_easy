@@ -1,29 +1,33 @@
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(<%= cl_image_path @restaurant.photo.key %>)">
+</div>
 <div class="container">
   <h1><%= @restaurant.name %></h1>
   <p><%= @restaurant.address %></p>
-  <ul class="list-inline tabs-underlined text-break">
+</div>
+<div class="container">
+  <div class="list-inline tabs-underlined">
     <% Product::DISH_TYPE.each do |type|  %>
-      <li>
-      <a href="#<%= type.downcase.tr(" ", "-") %>" class="tab-underlined fs-6 "><%= type %></a>
-    </li>
+      <a href="#<%= type.downcase.tr(" ", "-") %>" class="tab-underlined"><%= type %></a>
     <% end %>
-  </ul>
+  </div>
   <div class="sections">
     <% Product::DISH_TYPE.each do |type|  %>
       <div id="<%= type.downcase.tr(" ", "-") %>">
       <h4><%= type %></h4>
         <%@restaurant.products.where(dish_type: type).each do |product|%>
           <div class="card-product d-flex justify-content-center">
-            <div class="flex-grow-1 p-3 text-break">
-              <h4><%= product.name %></h4>
-              <p><%= product.ingredients %></p>
-              <%# <p class="pt-2 pb-1 text-break"><%= product.description </p> %>
-            </div>
-            <h4 class="p-3"><%= product.price %>eur</h4>
-            <% if product.photo.attached? %>
-              <%= cl_image_tag product.photo.key, width: 400, height: 300, crop: :fill %>
-            <% else %>
-              <%=  image_tag "https://t4.ftcdn.net/jpg/03/08/68/19/360_F_308681935_VSuCNvhuif2A8JknPiocgGR2Ag7D1ZqN.jpg" %>
+            <%= link_to restaurant_product_path(@restaurant,product) do %>
+              <div class="flex-grow-1 p-3 text-break">
+                <h4><%= product.name %></h4>
+                <p><%= product.ingredients %></p>
+                <%# <p class="pt-2 pb-1 text-break"><%= product.description </p> %>
+              </div>
+              <h4 class="p-3"><%= product.price %>eur</h4>
+              <% if product.photo.attached? %>
+                <%= cl_image_tag product.photo.key, width: 400, height: 300, crop: :fill %>
+              <% else %>
+                <%=  image_tag "https://t4.ftcdn.net/jpg/03/08/68/19/360_F_308681935_VSuCNvhuif2A8JknPiocgGR2Ag7D1ZqN.jpg" %>
+              <% end %>
             <% end %>
           </div>
         <% end %>

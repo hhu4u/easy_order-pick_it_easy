@@ -7,6 +7,8 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 puts "Clearing database"
+Order.destroy_all
+Table.destroy_all
 Product.destroy_all
 Restaurant.destroy_all
 User.destroy_all
@@ -23,6 +25,15 @@ restaurant.user = owner
 file = URI.open("https://www.royalfestival.be/wp-content/uploads/elementor/thumbs/Royal-Festival-de-Spa-2022-Dimanche-14-aout-31-q6lk609kkw7ivipjdobfafwdncq7oqw864m65uqun4.jpg")
 restaurant.photo.attach(io: file, filename: "terasse.jpg", content_type: "image/jpg")
 restaurant.save
+
+puts "Creating tables"
+i = 1
+20.times do
+  table = Table.new(number: i)
+  table.restaurant = restaurant
+  table.save
+  i += 1
+end
 
 puts "Creating products"
 file = URI.open("https://www.thecookierookie.com/wp-content/uploads/2023/04/featured-stovetop-burgers-recipe.jpg")

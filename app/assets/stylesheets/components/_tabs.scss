@@ -1,6 +1,8 @@
 .tabs-underlined {
   display: flex;
   align-items: center;
+  overflow-x: auto; /* Enable horizontal scrolling */
+  white-space: nowrap; /* Prevent tabs from wrapping to new lines */
 }
 
 .tabs-underlined .tab-underlined {
