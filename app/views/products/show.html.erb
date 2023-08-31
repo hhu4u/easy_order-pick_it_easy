@@ -1,5 +1,6 @@
-<div class="prod-header" style="background-image: url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
-</div>
+<%# <div class="prod-header" style="background-image: url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+</div> %>
+<%= cl_image_tag @product.photo.key, class:"prod-header" %>
 <div class="container">
   <h4><%= @product.name %></h4>
   <p><%= @product.price %>€</p>
