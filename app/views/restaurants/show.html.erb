@@ -1,7 +1,7 @@
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(<%= cl_image_path @restaurant.photo.key %>)">
 </div>
 <div class="container">
-  <h1><%= @restaurant.name %></h1>
+  <h1 class="pt-2"><%= @restaurant.name %></h1>
   <p><%= @restaurant.address %></p>
 </div>
 <div class="container">
@@ -15,27 +15,29 @@
       <div id="<%= type.downcase.tr(" ", "-") %>">
       <h4><%= type %></h4>
         <%@restaurant.products.where(dish_type: type).each do |product|%>
-          <div class="card-product d-flex justify-content-center">
-            <%= link_to restaurant_product_path(@restaurant,product) do %>
-              <div class="flex-grow-1 p-3 text-break">
-                <h4><%= product.name %></h4>
-                <p><%= product.ingredients %></p>
+          <%= link_to restaurant_product_path(@restaurant,product) do %>
+          <div class="card-product d-flex  justify-content-between">
+             <div>
+               <div class="d-flex flex-row px-3 pt-3">
+                <h4 class="me-auto"><%= product.name %></h4>
                 <%# <p class="pt-2 pb-1 text-break"><%= product.description </p> %>
-              </div>
-              <h4 class="p-3"><%= product.price %>eur</h4>
+                <h4><%= product.price %>eur</h4>
+               </div>
+                <div class="ms-3 pe-3 pb-3"><p><%= product.ingredients %></p></div>
+             </div>
               <% if product.photo.attached? %>
                 <%= cl_image_tag product.photo.key, width: 400, height: 300, crop: :fill %>
               <% else %>
                 <%=  image_tag "https://t4.ftcdn.net/jpg/03/08/68/19/360_F_308681935_VSuCNvhuif2A8JknPiocgGR2Ag7D1ZqN.jpg" %>
               <% end %>
-            <% end %>
           </div>
+            <% end %>
         <% end %>
       </div>
     <% end %>
   </div>
    <div class="d-grid gap-2 rounded mx-auto">
-  <button class="btn btn-dark" type="button"><%= link_to "Edit restaurant", edit_restaurant_path  %></button><br>
-  <button class="btn btn-dark" type="button"><%= link_to "Back to Restaurants", restaurants_path  %></button>
+  <button class="btn btn-dark"><%= link_to "Edit restaurant", edit_restaurant_path  %></button><br>
+  <button class="btn btn-dark"><%= link_to "Back to Restaurants", restaurants_path  %></button>
   </div>
 </div>
