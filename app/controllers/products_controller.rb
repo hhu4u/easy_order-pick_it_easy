@@ -5,7 +5,7 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.find(params[:id])
-    @restaurant = @product.restaurant
+    @restaurant = Restaurant.find(params[:restaurant_id])
     @order = Order.new
   end
 
