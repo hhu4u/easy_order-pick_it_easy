@@ -1,16 +1,18 @@
 <%# <div class="prod-header" style="background-image: url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
 </div> %>
-<%= cl_image_tag @product.photo.key, class:"prod-header" %>
 <div class="product">
-  <div class="product-details">
-    <h4 class="mt-3 fw-semibold"><%= @product.name %></h4>
-    <p class="fw-semibold"><%= @product.price %> €</p>
-    <p class="border-bottom pb-2 text-secondary fst-italic"><%= @product.description %></p>
-    <p class="fw-semibold">Ingredients:</p>
-    <p><%= @product.ingredients %></p>
+  <div>
+    <%= cl_image_tag @product.photo.key, class:"prod-header" %>
+    <div class="prod-details">
+      <h4 class="mt-3 fw-semibold"><%= @product.name %></h4>
+      <p class="fw-semibold"><%= @product.price %> €</p>
+      <p class="border-bottom pb-2 text-secondary fst-italic"><%= @product.description %></p>
+      <p class="fw-semibold">Ingredients:</p>
+      <p><%= @product.ingredients %></p>
+    </div>
   </div>
   <%# check if comment goes on @order %>
-  <div class="form">
+  <div class="prod-form">
     <%= simple_form_for [@restaurant, @product, @order] do |f| %>
       <%= f.input :comments, label: false, placeholder: "Tell us your preferences" %>
       <%= f.submit 'Add to cart', class:"btn btn-dark rounded mb-3 w-100" %>
