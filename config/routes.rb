@@ -12,8 +12,8 @@ Rails.application.routes.draw do
       end
     end
   end
-  resources :tables, only: ["create", "destroy"] do
-    resources :baskets, only: ["create", "destroy"]
+  resources :tables, only: ["create", "destroy", "index"] do
+    resources :baskets, only: ["create", "destroy", "show"]
   end
 
   # resources :tables, only: ["index", "new", "create"] do

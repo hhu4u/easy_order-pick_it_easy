@@ -14,9 +14,13 @@
 }
 
 .product {
-  width: 90vw;
-  margin: 0 auto;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+
+.prod-details, .prod-form {
+  width: 90vw;
+  margin: 0 auto;
 }
