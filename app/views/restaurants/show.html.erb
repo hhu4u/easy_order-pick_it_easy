@@ -1,7 +1,16 @@
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(<%= cl_image_path @restaurant.photo.key %>)">
 </div>
 <div class="container">
-  <h1 class="pt-2"><%= @restaurant.name %></h1>
+  <div class="d-flex justify-content-between">
+    <h1 class="pt-2"><%= @restaurant.name %></h1>
+      <% if current_user.restaurants.any? %>
+        <% if current_user.restaurants.include?(@restaurant)  %>
+          <%= link_to new_restaurant_product_path(@restaurant) do %>
+            <i class="fa-solid fa-circle-plus pt-4 pr-3 fa-xl" ></i>
+          <% end %>
+        <% end %>
+      <% end %>
+  </div>
   <p><%= @restaurant.address %></p>
 </div>
 <div class="container">
@@ -14,7 +23,7 @@
     <% Product::DISH_TYPE.each do |type|  %>
       <div id="<%= type.downcase.tr(" ", "-") %>">
       <h4><%= type %></h4>
-        <%@restaurant.products.where(dish_type: type).each do |product|%>
+        <%@products.where(dish_type: type).each do |product|%>
           <%= link_to restaurant_product_path(@restaurant,product) do %>
           <div class="card-product d-flex ">
              <div class="flex-fill">

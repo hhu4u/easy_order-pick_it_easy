@@ -1,0 +1,24 @@
+<%= link_to restaurant_product_path(@product.restaurant, @product) do %>
+  <i class="fa-solid fa-arrow-left stretch arrow" id="arrow"></i>
+<%end%>
+<div class="banner-placeholder">
+  <% if @product.photo.attached?  %>
+    <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(<%= cl_image_path @product.photo.key %>)">
+  <% else %>
+      <%=  image_tag "https://t4.ftcdn.net/jpg/03/08/68/19/360_F_308681935_VSuCNvhuif2A8JknPiocgGR2Ag7D1ZqN.jpg" %>
+  <% end %>
+</div>
+<div class="container">
+  <h1><%= @product.name %></h1>
+</div>
+<div class="container">
+  <%= simple_form_for [@product.restaurant, @product] do |f| %>
+      <%= f.input :name %>
+      <%= f.input :description %>
+      <%= f.input :price %>
+      <%= f.input :ingredients %>
+      <%= f.input :dish_type, collection: Product::DISH_TYPE %>
+      <%= f.input :photo, as: :file %>
+      <%= f.submit "Confirm", class: "btn btn-primary" %>
+    <% end %>
+</div>

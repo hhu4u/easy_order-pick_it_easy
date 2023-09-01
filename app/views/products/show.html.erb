@@ -1,3 +1,6 @@
+<%= link_to restaurant_path(@restaurant) do %>
+  <i class="fa-solid fa-arrow-left stretch arrow" id="arrow"></i>
+<%end%>
 <div class="product">
   <%= render "products/product", product: @product %>
   <div class="prod-form">

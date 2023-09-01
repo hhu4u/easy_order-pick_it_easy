@@ -1,0 +1,17 @@
+<%= link_to restaurant_path(@restaurant) do %>
+  <i class="fa-solid fa-arrow-left stretch arrow" id="arrow"></i>
+<%end%>
+<div class="container">
+  <h1>Add product</h1>
+</div>
+<div class="container">
+  <%= simple_form_for [@restaurant, @product] do |f| %>
+      <%= f.input :name %>
+      <%= f.input :description %>
+      <%= f.input :price %>
+      <%= f.input :ingredients %>
+      <%= f.input :dish_type, collection: Product::DISH_TYPE %>
+      <%= f.input :photo, as: :file %>
+      <%= f.submit "Confirm", class: "btn btn-primary" %>
+    <% end %>
+</div>

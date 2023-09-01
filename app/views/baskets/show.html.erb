@@ -1,8 +1,10 @@
-<div class="container">
 <%= link_to restaurant_path do %>
-<i class="fa-solid fa-arrow-left stretch arrow"></i>
+<i class="fa-solid fa-arrow-left stretch arrow" id="arrow"></i>
 <%end%>
-<h1 class="text-center pt-4 pb-2">Selecto</h1>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(<%= cl_image_path @restaurant.photo.key %>)">
+</div>
+<div class="container">
+<h1 class="text-center pt-4 pb-2"><%= @restaurant.name %></h1>
 <% @orders.each do |order| %>
   <div class="order-card px-3 pt-3">
     <div class="d-flex">
