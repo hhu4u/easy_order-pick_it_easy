@@ -16,8 +16,13 @@ User.destroy_all
 
 puts "Creating users"
 owner = User.new(first_name: "John", last_name: "Doe", email: "johndoe@mail.com", password: "123456")
+file = URI.open("https://stagea.blob.core.windows.net/images/photos/paulena-sharp-175d/paulena-sharp-ufl0s1sl.2fa.jpg")
+owner.photo.attach(io: file, filename: "owner.jpg", content_type: "image/jpg")
 owner.save
+
 customer = User.new(first_name: "Julie", last_name: "Smith", email: "juliesmith@mail.com", password: "123456")
+file = URI.open("https://th.bing.com/th/id/OIP.SDb1v0SzPPmCDIUv5LvdPQAAAA?pid=ImgDet&rs=1")
+customer.photo.attach(io: file, filename: "customer.jpg", content_type: "image/jpg")
 customer.save
 
 puts "Creating restaurants"
@@ -40,7 +45,7 @@ puts "Creating products"
 file = URI.open("https://www.thecookierookie.com/wp-content/uploads/2023/04/featured-stovetop-burgers-recipe.jpg")
 product1 = Product.new(name: "Hamburger classico",
                        price: 12.00,
-                       ingredients: "Ground beef, Hamburger buns, Salt, Pepper,Tomato, Onion slices, Cheese, Ketchup, Mustard, Mayonnaise, Bacon, Sauteed mushrooms, Fried egg",
+                       ingredients: "Ground beef, Buns, Salt, Pepper, Tomato, Onion, Cheese, Ketchup, Mustard, Mayonnaise, Bacon, mushrooms, egg",
                        description: "Tasty beef meet",
                        dish_type: "Main Courses")
 file = URI.open("https://wallpapercave.com/wp/wp1987065.jpg")
@@ -50,7 +55,7 @@ product1.save
 
 product2 = Product.new(name: "Italian Lasagna",
                        price: 18.00,
-                       ingredients: "Ground beef, Onion, Garlic cloves, minced, Canned crushed tomatoes, Olive oil, Dried oregano, Dried basil, Bay leaves",
+                       ingredients: "Ground beef, Onion, Garlic cloves, minced, Tomatoes, Olive oil, Dried oregano, Dried basil, Bay leaves",
                        description: "Crispy and golden on the outside and juicy in the middle, so delicious.",
                        dish_type: "Main Courses")
 file = URI.open("https://www.finedininglovers.com/sites/g/files/xknfdk626/files/styles/recipes_1200_800/public/2022-11/THE_SECRET_OF_ITALIAN_FOOD_LASAGNA_00.jpeg.webp?itok=VELk23pO")
@@ -123,7 +128,7 @@ product8.save
 
 product9 = Product.new(name: "Satay Skewers",
                        price: 8.00,
-                       ingredients: " chicken, soy sauce, fish sauce, brown sugar, vegetable oil, cumin, garlic, ginger, cayenne pepper,  Peanut Sauce",
+                       ingredients: " chicken, soy sauce, fish sauce, brown sugar, cumin, garlic, ginger, Pepper,  Peanut Sauce",
                        description: "Embark with these tender chicken skewers marinated in fragrant spices and served with a rich peanut sauce.",
                        dish_type: "Starters")
 file = URI.open("https://www.aheadofthyme.com/wp-content/uploads/2020/07/satay-chicken-skewers-with-peanut-sauce-8.jpg")

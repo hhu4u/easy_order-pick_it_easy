@@ -1,13 +1,13 @@
 <div class="container">
-<%= link_to  restaurant_path do %>
+<%= link_to restaurant_path(@restaurant) do %>
 <i class="fa-solid fa-arrow-left stretch arrow"></i>
 <%end%>
-<h1 class="text-center pt-4 pb-2">Selecto</h1>
+<h1 class="text-center pt-4 pb-2"><%= @restaurant.name %></h1>
 <% @orders.each do |order| %>
   <div class="d-flex order-card">
     <div class="flex-fill">
       <div class="d-flex flex-row justify-content-between px-3 pt-3 text-wrap">
-        <h4 class="me-auto"><%= order.product.name %></h4>
+        <h4 class="me-auto pt-1"><%= order.product.name %></h4>
         <%= link_to edit_restaurant_product_order_path(@restaurant, order.product, order) do %>
           <i class="fa-regular fa-pen-to-square px-2"></i>
         <% end %>
@@ -16,7 +16,8 @@
         <% end %>
       </div>
       <div class="ms-3 pe-3 pb-3">
-        <p><%= order.product.description %></p>
+        <p>Your preferences :</p>
+        <%# <p><%= order.product.description </p> %>
         <p><%= order.comments %></p>
       </div>
     </div>
