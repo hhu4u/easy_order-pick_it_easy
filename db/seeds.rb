@@ -10,6 +10,7 @@ puts "Clearing database"
 Basket.destroy_all
 Order.destroy_all
 Table.destroy_all
+Order.destroy_all
 Product.destroy_all
 Restaurant.destroy_all
 User.destroy_all
