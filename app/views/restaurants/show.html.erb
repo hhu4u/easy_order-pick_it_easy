@@ -36,7 +36,7 @@
       </div>
     <% end %>
   </div>
-   <div class="d-grid gap-2 mx-auto">
- <%= link_to "My basket", table_basket_path(@table, @basket), class:"btn btn-dark rounded mb-3 w-100"%>
-  </div>
+</div>
+<div id="basket-btn" class="d-grid rounded container">
+  <button class="btn btn-dark" type="button"><%= link_to "My basket", table_basket_path(@table, @basket), style: "text-decoration: none; color: white;" %></button><br>
 </div>

@@ -1,6 +1,6 @@
 class TablesController < ApplicationController
   def index
-    @tables = Table.all
+    @tables = Table.where(restaurant: @restaurant)
   end
 
   def new
@@ -9,6 +9,8 @@ class TablesController < ApplicationController
 
   def create
     @table = Table.new(table_params)
+    @table.restaurant = @restaurant
+    raise
     if @table.save
       redirect_to tables_path
     else
@@ -32,6 +34,11 @@ class TablesController < ApplicationController
   private
 
   def table_params
-    params.require(:table).permit(:number, :restaurant_id)
+    params.require(:table).permit(:number, :photo)
   end
+
+  def set_restaurant
+    @restaurant = Restaurant.find(params[:restaurant_id])
+  end
+
 end
