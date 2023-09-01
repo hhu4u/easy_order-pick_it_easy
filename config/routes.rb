@@ -17,11 +17,8 @@ Rails.application.routes.draw do
 
   resources :tables, only: ["create", "destroy", "index"] do
     resources :baskets, only: ["create", "destroy", "show"]
+    member do
+      get 'scan_qr_code/:restaurant_id/:table_number', action: :scan_qr_code, as: 'scan_qr_code'
+    end
   end
-
-  # resources :tables, only: ["index", "new", "create"] do
-  #   member do
-  #     get 'scan_qr_code/:restaurant_id/:table_number', action: :scan_qr_code, as: 'scan_qr_code'
-  #   end
-  # end
 end

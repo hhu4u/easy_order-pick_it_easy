@@ -1,0 +1,6 @@
+<h1>tables</h1>
+
+<%= @tables.each do |table| %>
+  <p><%= table.number %></p>
+  <%= cl_image_tag table.photo.key, width: 400, height: 300, crop: :fill %>
+<% end %>
