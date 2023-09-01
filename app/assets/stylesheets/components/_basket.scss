@@ -1,6 +1,6 @@
 .order-card{
   overflow: hidden;
-  height: 100px;
+  height: 120px;
   background: white;
   box-shadow: 0 0 15px rgba(19, 19, 19, 0.2);
   border-radius:10px;
@@ -12,17 +12,25 @@
 .arrow{
   font-size: 23px;
   padding-top: 17px;
-
+  color: black;
 }
 .order-card h4{
   font-size: 14px;
   font-weight: bold;
   margin: 0;
 }
+.order-card i{
+  color: black;
+}
 .order-card p {
-  font-size: 14px;
+  font-size: 12px;
   line-height: 1.4;
   opacity: .7;
   margin-bottom: 0;
   margin-top: 8px;
+}
+.order-card img{
+  height: 100%;
+  width: 120px;
+  object-fit: cover;
 }
