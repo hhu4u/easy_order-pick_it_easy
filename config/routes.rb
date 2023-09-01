@@ -8,10 +8,13 @@ Rails.application.routes.draw do
 
   resources :restaurants, only: ["new", "create", "update", "edit", "show", "index"] do
     resources :products, only: ["index", "show", "new", "create", "edit", "update", "destroy"] do
-      resources :orders, only: ["create", "destroy"] do
+      resources :orders, only: ["create", "edit", "update", "destroy"] do
       end
     end
   end
+
+  resources :orders, only: ["edit", "update", "destroy"]
+
   resources :tables, only: ["create", "destroy", "index"] do
     resources :baskets, only: ["create", "destroy", "show"]
   end
