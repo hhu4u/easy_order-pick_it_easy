@@ -1,0 +1,9 @@
+<div class="product">
+  <%= render "products/product", product: @product %>
+  <div class="prod-form">
+    <%= simple_form_for(@order) do |f| %>
+      <%= f.input :comments, label: false %>
+      <%= f.submit 'Update my comment', class:"btn btn-dark rounded mb-3 w-100" %>
+    <% end %>
+  </div>
+</div>
