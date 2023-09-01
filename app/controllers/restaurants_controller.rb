@@ -8,6 +8,7 @@ class RestaurantsController < ApplicationController
     current_basket = Basket.where(user: current_user, basket_status: "New").first
     @basket = current_basket
     @table = current_basket.table
+    @products = @restaurant.products
   end
 
   def new
