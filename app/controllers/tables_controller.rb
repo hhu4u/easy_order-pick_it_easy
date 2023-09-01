@@ -34,7 +34,7 @@ class TablesController < ApplicationController
   private
 
   def table_params
-    params.require(:table).permit(:number)
+    params.require(:table).permit(:number, :photo)
   end
 
   def set_restaurant

@@ -7,7 +7,6 @@ class OrdersController < ApplicationController
     @order.product = @product
     @order.basket = Basket.where(user: current_user, basket_status: "New").first
     if @order.save
-      # change to restaurant path, not root
       redirect_to restaurant_path(@restaurant)
     else
       render "products/show", status: :unprocessable_entity
@@ -34,7 +33,7 @@ class OrdersController < ApplicationController
   def destroy
     @order = Order.find(params[:id])
     @order.destroy
-    redirect_to table_basket_path, status: :see_other
+    redirect_to table_basket_path(@order.basket.table), status: :see_other
   end
 
   private
