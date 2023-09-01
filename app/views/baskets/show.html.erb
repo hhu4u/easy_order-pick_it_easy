@@ -3,6 +3,14 @@
   <div class="order-card">
     <h1><%= order.product.name %></h1>
     <p><%= order.product.description %></p>
+    <p><%= order.comments %></p>
+      <div class="crud">
+        <%= link_to edit_restaurant_product_order_path(@restaurant, order.product, order) do %>
+          <i class="fa-regular fa-pen-to-square" style="color: #000000;"></i>
+        <% end %>
+        <%= link_to restaurant_product_order_path(@restaurant, order.product, order), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
+          <i class="fa-solid fa-trash" style="color: #000000;"></i>
+        <% end %>
+      </div>
   </div>
-
 <% end %>
