@@ -1,8 +1,17 @@
-<h1>My Basket</h1>
+<div class="container">
+<%= link_to restaurant_path do %>
+<i class="fa-solid fa-arrow-left stretch arrow"></i>
+<%end%>
+<h1 class="text-center pt-4 pb-2">Selecto</h1>
 <% @orders.each do |order| %>
-  <div class="order-card">
-    <h1><%= order.product.name %></h1>
+  <div class="order-card px-3 pt-3">
+    <div class="d-flex">
+      <h4 class="me-auto"><%= order.product.name %></h4>
+      <i class="fa-regular fa-pen-to-square px-2"></i>
+      <i class="fa-regular fa-trash-can"></i>
+    </div>
     <p><%= order.product.description %></p>
   </div>
 
 <% end %>
+</div>
