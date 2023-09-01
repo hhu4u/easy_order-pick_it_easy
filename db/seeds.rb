@@ -8,6 +8,7 @@
 
 puts "Clearing database"
 Basket.destroy_all
+Order.destroy_all
 Table.destroy_all
 Order.destroy_all
 Product.destroy_all
@@ -277,5 +278,19 @@ file = URI.open("https://i1.wp.com/readynutrition.com/wp-content/uploads/2015/01
 product25.photo.attach(io: file, filename: "25.jpg", content_type: "image/jpg")
 product25.restaurant = restaurant
 product25.save
+
+puts "Creating baskets"
+basket1 = Basket.new
+basket1.table = Table.first
+basket1.basket_status = "New"
+basket1.user = owner
+basket1.save
+
+puts "Creating baskets"
+basket2 = Basket.new
+basket2.table = Table.last
+basket2.basket_status = "New"
+basket2.user = customer
+basket2.save
 
 puts "Seeds completed"

@@ -7,4 +7,12 @@
 @import "tabs";
 @import "card";
 @import "banner";
-@import "basket"
+@import "basket";
+
+
+.arrow {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  color: white;
+}

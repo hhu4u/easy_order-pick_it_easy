@@ -10,6 +10,7 @@ class ProductsController < ApplicationController
   end
 
   def new
+    @restaurant = Restaurant.find(params[:restaurant_id])
     @product = Product.new
   end
 
@@ -18,7 +19,7 @@ class ProductsController < ApplicationController
     @product = Product.new(product_params)
     @product.restaurant = @restaurant
     if @product.save
-      redirect_to product_path(@product)
+      redirect_to restaurant_path(@restaurant)
     else
       render :new, status: :unprocessable_entity
     end
@@ -29,19 +30,21 @@ class ProductsController < ApplicationController
   end
 
   def update
+    @restaurant = Restaurant.find(params[:restaurant_id])
     @product = Product.find(params[:id])
-    @product.update(params[:product])
+    @product.update(product_params)
+    redirect_to restaurant_product_path(@product.restaurant, @product)
   end
 
   def destroy
     @product = Product.find(params[:id])
     @product.destroy
-    redirect_to restaurant_products_path, status: :see_other
+    redirect_to restaurant_path(@product.restaurant), status: :see_other
   end
 
   private
 
   def product_params
-    params.require(:product).permit(:name, :description, :price, :ingredients, :photo)
+    params.require(:product).permit(:name, :description, :price, :ingredients, :photo, :dish_type)
   end
 end
