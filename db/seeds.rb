@@ -7,8 +7,9 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 puts "Clearing database"
-Order.destroy_all
+Basket.destroy_all
 Table.destroy_all
+Order.destroy_all
 Product.destroy_all
 Restaurant.destroy_all
 User.destroy_all
@@ -61,7 +62,7 @@ product2.save
 product3 = Product.new(name: "Ragù Bolognese",
                        price: 15.00,
                        ingredients: "Ground beef, Onion, Carrot, Celery, Pancetta or bacon, finely, Garlic cloves, tomatoes, Whole milk, wine, Bay leaves",
-                       description: "This dish can be more representative of the Bolognese tradition than ragù Bolognese with tagliatelle",
+                       description: "This dish can be more representative of the Bolognese tradition with tagliatelle",
                        dish_type: "Main Courses")
 file = URI.open("https://www.finedininglovers.com/sites/g/files/xknfdk626/files/styles/recipes_1200_800/public/2021-03/ragu_bolognese.jpg.webp?itok=ZGXPM0Lv")
 product3.photo.attach(io: file, filename: "3.jpg", content_type: "image/jpg")
@@ -123,7 +124,7 @@ product8.save
 product9 = Product.new(name: "Satay Skewers",
                        price: 8.00,
                        ingredients: " chicken, soy sauce, fish sauce, brown sugar, vegetable oil, cumin, garlic, ginger, cayenne pepper,  Peanut Sauce",
-                       description: "Embark on an Asian culinary journey with these tender chicken skewers marinated in fragrant spices and served with a rich peanut sauce.",
+                       description: "Embark with these tender chicken skewers marinated in fragrant spices and served with a rich peanut sauce.",
                        dish_type: "Starters")
 file = URI.open("https://www.aheadofthyme.com/wp-content/uploads/2020/07/satay-chicken-skewers-with-peanut-sauce-8.jpg")
 product9.photo.attach(io: file, filename: "9.jpg", content_type: "image/jpg")
@@ -133,7 +134,7 @@ product9.save
 product10 = Product.new(name: "Tiramisu",
                         price: 10.00,
                         ingredients: "Coffee Soaking Syrup, Mascarpone, Ladyfinger cookies",
-                        description: "Tiramisu is a sophisticated dessert with layers of coffee-soaked ladyfingers and creamy mascarpone mixture.",
+                        description: "Tiramisu is a sophisticated dessert with layers of coffee-soaked ladyfingers.",
                         dish_type: "Desserts")
 file = URI.open("https://th.bing.com/th/id/R.743fbf4cf71f1f43020e981be7e03121?rik=t46AyC8d5qxl4Q&pid=ImgRaw&r=0")
 product10.photo.attach(io: file, filename: "10.jpg", content_type: "image/jpg")
@@ -143,7 +144,7 @@ product10.save
 product11 = Product.new(name: "Fruit Parfait",
                         price: 12.00,
                         ingredients: "Fresh mixed fruits, Yogurt, cerel, maple syrup, Nuts, Fresh mint leaves",
-                        description: "A fruit parfait is a refreshing and healthier dessert option. The layers of Greek yogurt, granola, and fresh fruits provide a satisfying mix of textures and flavors",
+                        description: "A fruit parfait is a refreshing and healthier dessert option. The layers provide a satisfying mix of textures and flavors",
                         dish_type: "Desserts")
 file = URI.open("https://bing.com/th?id=OSK.8267302d177279b408cc1a9d9613d616")
 product11.photo.attach(io: file, filename: "11.jpg", content_type: "image/jpg")
@@ -164,7 +165,7 @@ product12.save
 product13 = Product.new(name: "Peach Cobbler",
                         price: 8.00,
                         ingredients: " fresh peaches, granulated sugar, unsalted butter, lemon juice, cinnamn, nutmeg",
-                        description: "Sweet and juicy with plenty of real peach flavor and just the right touch of cinnamon, this cobbler is the last homemade peach cobbler",
+                        description: "Sweet and juicy with plenty of real peach flavor and just the right touch of cinnamon.",
                         dish_type: "Desserts")
 file = URI.open("https://bing.com/th?id=OSK.187951fc01deab3040b433e7af881bc0")
 product13.photo.attach(io: file, filename: "13.jpg", content_type: "image/jpg")

@@ -1,25 +1,31 @@
 <div class="container">
-<%= link_to restaurant_path do %>
+<%= link_to  restaurant_path do %>
 <i class="fa-solid fa-arrow-left stretch arrow"></i>
 <%end%>
 <h1 class="text-center pt-4 pb-2">Selecto</h1>
 <% @orders.each do |order| %>
-  <div class="order-card px-3 pt-3">
-    <div class="d-flex">
-      <h4 class="me-auto"><%= order.product.name %></h4>
-      <i class="fa-regular fa-pen-to-square px-2"></i>
-      <i class="fa-regular fa-trash-can"></i>
-    </div>
-    <p><%= order.product.description %></p>
-    <p><%= order.comments %></p>
-      <div class="crud">
+  <div class="d-flex order-card">
+    <div class="flex-fill">
+      <div class="d-flex flex-row justify-content-between px-3 pt-3 text-wrap">
+        <h4 class="me-auto"><%= order.product.name %></h4>
         <%= link_to edit_restaurant_product_order_path(@restaurant, order.product, order) do %>
-          <i class="fa-regular fa-pen-to-square" style="color: #000000;"></i>
+          <i class="fa-regular fa-pen-to-square px-2"></i>
         <% end %>
         <%= link_to restaurant_product_order_path(@restaurant, order.product, order), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
-          <i class="fa-solid fa-trash" style="color: #000000;"></i>
+          <i class="fa-regular fa-trash-can"></i>
         <% end %>
       </div>
+      <div class="ms-3 pe-3 pb-3">
+        <p><%= order.product.description %></p>
+        <p><%= order.comments %></p>
+      </div>
+    </div>
+       <%= cl_image_tag order.product.photo.key, width: 400, height: 300, crop: :fill %>
+
+      <%# <div class="crud">
+          <i class="fa-regular fa-pen-to-square" style="color: #000000;"></i>
+          <i class="fa-solid fa-trash" style="color: #000000;"></i>
+      </div> %>
   </div>
 <% end %>
 </div>
