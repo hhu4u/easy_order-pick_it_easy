@@ -17,12 +17,12 @@ User.destroy_all
 
 puts "Creating users"
 owner = User.new(first_name: "John", last_name: "Doe", email: "johndoe@mail.com", password: "123456")
-file = URI.open("https://stagea.blob.core.windows.net/images/photos/paulena-sharp-175d/paulena-sharp-ufl0s1sl.2fa.jpg")
+file = URI.open("https://th.bing.com/th/id/OIP.SDb1v0SzPPmCDIUv5LvdPQAAAA?pid=ImgDet&rs=1")
 owner.photo.attach(io: file, filename: "owner.jpg", content_type: "image/jpg")
 owner.save
 
 customer = User.new(first_name: "Julie", last_name: "Smith", email: "juliesmith@mail.com", password: "123456")
-file = URI.open("https://th.bing.com/th/id/OIP.SDb1v0SzPPmCDIUv5LvdPQAAAA?pid=ImgDet&rs=1")
+file = URI.open("https://stagea.blob.core.windows.net/images/photos/paulena-sharp-175d/paulena-sharp-ufl0s1sl.2fa.jpg")
 customer.photo.attach(io: file, filename: "customer.jpg", content_type: "image/jpg")
 customer.save
 
