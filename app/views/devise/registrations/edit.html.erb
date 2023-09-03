@@ -1,9 +1,10 @@
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-12 col-lg-6">
-      <div class="form-registration pt-5">
+      <div class="form-registration pt-3">
 
-        <h2 class="pb-3">Edit <%= resource_name.to_s.humanize %></h2>
+        <%# <h2 class="pb-3">Edit <%= resource_name.to_s.humanize </h2> %>
+        <h2><%= "#{current_user.first_name.capitalize} #{current_user.last_name.capitalize}" %></h2>
 
         <%= link_to "Add Restaurant", new_restaurant_path %>
 
@@ -16,7 +17,12 @@
             <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
               <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
             <% end %>
-
+            <%= f.input :first_name,
+                        required: true,
+                        autofocus: true %>
+            <%= f.input :last_name,
+                        required: true,
+                        autofocus: true %>
             <%= f.input :photo, as: :file,
                         required: false %>
             <%= f.input :password,
