@@ -2,10 +2,13 @@
   <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     <% if user_signed_in? %>
       <% if current_user.photo.attached? %>
-          <%= cl_image_tag current_user.photo.key, class: "avatar", alt: "dropdown menu" %>
+        <%= cl_image_tag current_user.photo.key, class: "avatar", alt: "dropdown menu" %>
+      <% else %>
+        <%= image_tag "https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg", class: "avatar", alt: "dropdown menu" %>
       <% end %>
+    <% else %>
+      <%= image_tag "https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg", class: "avatar", alt: "dropdown menu" %>
     <% end %>
-    <%= image_tag "https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg", class: "avatar", alt: "dropdown menu" %>
   </a>
   <% if user_signed_in? %>
      <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
