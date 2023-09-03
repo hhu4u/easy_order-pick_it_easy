@@ -2,7 +2,7 @@
 </div>
 <div class="container">
   <div class="d-flex justify-content-between">
-    <h1 class="pt-2"><%= @restaurant.name %></h1>
+    <h1 class="pt-3 lh-1"><%= @restaurant.name %></h1>
       <% if current_user.restaurants.any? %>
         <% if current_user.restaurants.include?(@restaurant)  %>
           <%= link_to new_restaurant_product_path(@restaurant) do %>
@@ -11,7 +11,7 @@
         <% end %>
       <% end %>
   </div>
-  <p><%= @restaurant.address %></p>
+  <p class="fw-light lh-1"><%= @restaurant.address %></p>
 </div>
 <div class="container">
   <div class="ps-0 list-inline tabs-underlined">
@@ -46,7 +46,7 @@
     <% end %>
   </div>
 </div>
-<% if @restaurant.user != current_user %>
+<% unless @restaurant.user == current_user %>
   <div id="basket-btn" class="d-grid rounded container">
     <button class="btn btn-dark" type="button"><%= link_to "See the cart (#{@basket.orders.count})", table_basket_path(@table, @basket), style: "text-decoration: none; color: white;" %></button><br>
   </div>

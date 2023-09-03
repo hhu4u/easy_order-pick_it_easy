@@ -3,6 +3,9 @@
     <% if user_signed_in? %>
       <% if current_user.photo.attached? %>
         <%= cl_image_tag current_user.photo.key, class: "avatar", alt: "dropdown menu" %>
+        <%# <% image_key = current_user.photo.key %>
+        <%# <% image_url = "http://res.cloudinary.com/dwdyjpnms/image/upload/g_face/v1/development/#{image_key}" %>
+        <%# <%= image_tag(image_url, class: "avatar", alt: "dropdown menu") %>
       <% else %>
         <%= image_tag "https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg", class: "avatar", alt: "dropdown menu" %>
       <% end %>

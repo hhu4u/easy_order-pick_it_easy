@@ -43,16 +43,19 @@ i = 1
 end
 
 puts "Creating products"
-file = URI.open("https://www.thecookierookie.com/wp-content/uploads/2023/04/featured-stovetop-burgers-recipe.jpg")
 product1 = Product.new(name: "Hamburger classico",
-                       price: 12.00,
-                       ingredients: "Ground beef, Buns, Salt, Pepper, Tomato, Onion, Cheese, Ketchup, Mustard, Mayonnaise, Bacon, mushrooms, egg",
-                       description: "Tasty beef meet",
-                       dish_type: "Main Courses")
-file = URI.open("https://wallpapercave.com/wp/wp1987065.jpg")
+price: 12.00,
+ingredients: "Ground beef, Buns, Salt, Pepper, Tomato, Onion, Cheese, Ketchup, Mustard, Mayonnaise, Bacon, mushrooms, egg",
+description: "A succulent beef patty, seared to perfection and crowned with melted cheese, nestled within a toasted brioche bun, harmonizing savory and creamy flavors in every bite.",
+dish_type: "Main Courses")
+# file = URI.open("https://www.thecookierookie.com/wp-content/uploads/2023/04/featured-stovetop-burgers-recipe.jpg")
+# file = URI.open("https://wallpapercave.com/wp/wp1987065.jpg")
+file = URI.open("https://images.unsplash.com/photo-1550547660-d9450f859349?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1965&q=80.jpg")
 product1.photo.attach(io: file, filename: "1.jpg", content_type: "image/jpg")
 product1.restaurant = restaurant
 product1.save
+
+sleep(5)
 
 product2 = Product.new(name: "Italian Lasagna",
                        price: 18.00,
@@ -111,7 +114,8 @@ product7 = Product.new(name: "Caprese Skewers",
                        ingredients: "Fresh mozzarella cheese, Cherry tomatoes, basil leaves, olive oil, Salt and pepper",
                        description: "These colorful caprese salad skewers with bite-sized portions are perfect for holiday parties",
                        dish_type: "Starters")
-file = URI.open("https://thumbs.dreamstime.com/b/fresh-tomato-mozzarella-balls-basil-platter-plate-toothpicks-55833406.jpg")
+# file = URI.open("https://thumbs.dreamstime.com/b/fresh-tomato-mozzarella-balls-basil-platter-plate-toothpicks-55833406.jpg")
+file = URI.open("https://i.pinimg.com/564x/d9/73/e7/d973e70090456dc9bbbf27f58a83ef3e.jpg")
 product7.photo.attach(io: file, filename: "7.jpg", content_type: "image/jpg")
 product7.restaurant = restaurant
 product7.save
@@ -279,14 +283,14 @@ product25.photo.attach(io: file, filename: "25.jpg", content_type: "image/jpg")
 product25.restaurant = restaurant
 product25.save
 
-puts "Creating baskets"
+puts "Creating owner's basket"
 basket1 = Basket.new
 basket1.table = Table.first
 basket1.basket_status = "New"
 basket1.user = owner
 basket1.save
 
-puts "Creating baskets"
+puts "Creating customer's baskets"
 basket2 = Basket.new
 basket2.table = Table.last
 basket2.basket_status = "New"
