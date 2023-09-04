@@ -3,8 +3,9 @@
     <i class="fa-solid fa-arrow-left stretch arrow" id="arrow"></i>
   <% end %>
 <% end %>
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(<%= cl_image_path @restaurant.photo.key %>)">
-</div>
+<% if @restaurant.photo.attached? %>
+  <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(<%= cl_image_path @restaurant.photo.key %>)"></div>
+<% end %>
 <div class="container">
   <div class="d-flex justify-content-between">
     <div class="d-flex justify-content-start">
@@ -64,6 +65,6 @@
 </div>
 <% unless @restaurant.user == current_user %>
   <div id="basket-btn" class="d-grid rounded container">
-    <button class="btn btn-dark" type="button"><%= link_to "See the cart (#{@basket.orders.count})", table_basket_path(@table, @basket), style: "text-decoration: none; color: white;" %></button><br>
+    <button class="btn btn-dark" type="button"><%= link_to "See the cart (#{@basket.orders.count})", restaurant_table_basket_path(@restaurant, @table, @basket), style: "text-decoration: none; color: white;" %></button><br>
   </div>
 <% end %>
