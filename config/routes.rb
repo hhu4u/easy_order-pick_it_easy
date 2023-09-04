@@ -11,15 +11,12 @@ Rails.application.routes.draw do
       resources :orders, only: ["create", "edit", "update", "destroy"] do
       end
     end
+
+    resources :tables, only: ["new", "create", "destroy", "index"] do
+      resources :baskets, only: ["create", "destroy", "show"]
+    end
   end
 
   resources :orders, only: ["edit", "update", "destroy"]
 
-  resources :tables, only: ["create", "destroy", "index"] do
-    resources :baskets, only: ["create", "destroy", "show"]
-    member do
-      get 'scan_qr_code/:restaurant_id/:table_number', action: :scan_qr_code, as: 'scan_qr_code'
-    end
-  end
-  post 'baskets/:id', to: 'baskets#confirm_basket', as: 'confirm'
 end

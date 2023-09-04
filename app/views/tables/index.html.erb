@@ -1,6 +1,8 @@
-<h1>tables</h1>
+<h1>Tables</h1>
 
-<%= @tables.each do |table| %>
-  <p><%= table.number %></p>
-  <%= cl_image_tag table.photo.key, width: 400, height: 300, crop: :fill %>
-<% end %>
+<div class="container">
+  <% @tables.each do |table| %>
+    <p><%= table.number %></p>
+    <%= table.qr_code.html_safe %>
+  <% end %>
+</div>

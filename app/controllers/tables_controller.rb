@@ -1,4 +1,5 @@
 class TablesController < ApplicationController
+  before_action :set_restaurant, only: [:new, :create, :index]
   def index
     @tables = Table.where(restaurant: @restaurant)
   end
@@ -7,28 +8,27 @@ class TablesController < ApplicationController
     @table = Table.new
   end
 
+
   def create
     @table = Table.new(table_params)
     @table.restaurant = @restaurant
-    raise
+    generate_qr_code
+    @table.qr_code = @svg
     if @table.save
-      redirect_to tables_path
+      redirect_to restaurant_tables_path(@restaurant)
     else
       render :new
     end
   end
 
-  def scan_qr_code
-    restaurant_id = params[:restaurant_id]
-    table_number = params[:table_number]
-    restaurant = Restaurant.find(restaurant_id)
-    basket = Basket.new
-
-    if restaurant
-      redirect_to restaurant_path(restaurant, table_number: table_number, basket: basket)
-    else
-      redirect_to root_path, alert: "Invalid QR code"
-    end
+  def generate_qr_code
+    qr = RQRCode::QRCode.new("https://www.pickiteasy.me/restaurants/#{@restaurant.id}/?table=#{@table.id}")
+    @svg = qr.as_svg(
+      offset: 0,
+      color: '000',
+      shape_rendering: 'crispEdges',
+      standalone: true
+    )
   end
 
   private
@@ -40,5 +40,4 @@ class TablesController < ApplicationController
   def set_restaurant
     @restaurant = Restaurant.find(params[:restaurant_id])
   end
-
 end

@@ -3,10 +3,12 @@
 <%end%>
 <div class="product">
   <%= render "products/product", product: @product %>
-  <div class="prod-form">
-    <%= simple_form_for [@restaurant, @product, @order] do |f| %>
-      <%= f.input :comments, label: false, placeholder: "Tell us your preferences" %>
-      <%= f.submit 'Add to cart', class:"btn btn-dark rounded mb-3 w-100" %>
-    <% end %>
-  </div>
+  <% unless @restaurant.user == current_user %>
+    <div class="prod-form">
+      <%= simple_form_for [@restaurant, @product, @order] do |f| %>
+        <%= f.input :comments, label: false, placeholder: "Tell us your preferences" %>
+          <%= f.submit 'Add to cart', class:"btn btn-dark rounded mb-3 w-100" %>
+      <% end %>
+    </div>
+  <% end %>
 </div>
