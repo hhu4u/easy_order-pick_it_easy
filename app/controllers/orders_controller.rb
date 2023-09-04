@@ -24,7 +24,7 @@ class OrdersController < ApplicationController
     @basket = @order.basket
     @table = @order.basket.table
     if @order.update(order_params)
-      redirect_to table_basket_path(@table, @basket)
+      redirect_to restaurant_table_basket_path(@order.basket.table.restaurant, @order.basket.table,@order.basket)
     else
 
     end
@@ -33,7 +33,7 @@ class OrdersController < ApplicationController
   def destroy
     @order = Order.find(params[:id])
     @order.destroy
-    redirect_to table_basket_path(@order.basket.table), status: :see_other
+    redirect_to restaurant_table_basket_path(@order.basket.table.restaurant, @order.basket.table,@order.basket), status: :see_other
   end
 
   private

@@ -9,6 +9,7 @@
               <h4 class="me-auto"><%= restaurant.name %></h4>
             </div>
             <div class="ms-3 pe-3 pb-3"><p><%= restaurant.address %></p></div>
+            <div class="ms-3 pe-3 pb-3"> <%= link_to "Generate QR Codes", new_restaurant_table_path(restaurant) %></div>
           </div>
           <% if restaurant.photo.attached? %>
             <%= cl_image_tag restaurant.photo.key, width: 400, height: 300, crop: :fill %>
