@@ -21,4 +21,5 @@ Rails.application.routes.draw do
       get 'scan_qr_code/:restaurant_id/:table_number', action: :scan_qr_code, as: 'scan_qr_code'
     end
   end
+  post 'baskets/:id', to: 'baskets#confirm_basket', as: 'confirm'
 end

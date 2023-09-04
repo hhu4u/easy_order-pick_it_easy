@@ -31,4 +31,9 @@
       </div> %>
   </div>
 <% end %>
+<%= form_with url: confirm_path(@basket) do %>
+  <%= hidden_field_tag 'table_id', @table.id %>
+  <%= submit_tag 'Purchase', class: 'btn btn-primary', id: 'pay' %>
+<% end %>
+
 </div>
