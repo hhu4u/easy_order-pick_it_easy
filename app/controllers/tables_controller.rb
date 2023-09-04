@@ -8,15 +8,6 @@ class TablesController < ApplicationController
     @table = Table.new
   end
 
-  def show
-    @basket = Basket.new
-    # Correct with qr code path
-    @basket.table = Table.find(params[:id])
-    @basket.basket_status = "New"
-    @basket.user = current_user
-    @basket.save
-  end
-
 
   def create
     @table = Table.new(table_params)
