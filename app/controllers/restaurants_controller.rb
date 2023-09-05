@@ -15,10 +15,10 @@ class RestaurantsController < ApplicationController
       @products = @products.where(sql_subquery, query: "%#{params[:query]}%")
     end
 
-    # respond_to do |format|
-    #   format.html # Follow regular flow of Rails
-    #   format.text { render partial: 'products_list.html', locals: { products: @products } }
-    # end
+    respond_to do |format|
+      format.html # Follow regular flow of Rails
+      format.text { render partial: 'products/products_list', locals: { restaurant: @restaurant, products: @products }, formats: [:html] }
+    end
   end
 
   def new
