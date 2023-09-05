@@ -1,3 +1,9 @@
+<div class="button-container">
+  <% unless @restaurant.user == current_user %>
+    <button id="basket-btn" class="btn btn-dark" type="button"><%= link_to "See the cart (#{@basket.orders.count})", restaurant_table_basket_path(@restaurant, @table, @basket), style: "text-decoration: none; color: white;" %></button><br>
+  <% end %>
+</div>
+
 <% if @restaurant.user == current_user %>
   <%= link_to restaurants_path do %>
     <i class="fa-solid fa-arrow-left stretch arrow" id="arrow"></i>
@@ -80,8 +86,3 @@
     </div>
   </div>
 </div>
-<% unless @restaurant.user == current_user %>
-  <div id="basket-btn" class="d-grid rounded container">
-    <button class="btn btn-dark" type="button"><%= link_to "See the cart (#{@basket.orders.count})", restaurant_table_basket_path(@restaurant, @table, @basket), style: "text-decoration: none; color: white;" %></button><br>
-  </div>
-<% end %>
