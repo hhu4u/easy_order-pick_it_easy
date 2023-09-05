@@ -1,4 +1,10 @@
 class OrdersController < ApplicationController
+  def index
+    @basket = Basket.find(params[:basket_id])
+    @restaurant = @basket.table.restaurant
+    @orders = @basket.orders
+  end
+
   def create
     @restaurant = Restaurant.find(params[:restaurant_id])
     @order = Order.new(order_params)
