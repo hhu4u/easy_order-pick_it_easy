@@ -50,6 +50,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_04_102249) do
     t.datetime "updated_at", null: false
     t.bigint "user_id"
     t.string "basket_status"
+    t.string "checkout_session_id"
     t.index ["table_id"], name: "index_baskets_on_table_id"
     t.index ["user_id"], name: "index_baskets_on_user_id"
   end
