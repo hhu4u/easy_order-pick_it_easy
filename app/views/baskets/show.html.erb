@@ -35,7 +35,7 @@
   <% if @basket.orders.count.positive? %>
     <%= form_with url: confirm_path(@basket) do %>
       <%= hidden_field_tag 'table_id', @table.id %>
-      <%= submit_tag 'Purchase', class: 'btn btn-primary', id: 'pay' %>
+      <%= submit_tag 'Pay', class: 'btn btn-primary', id: 'pay' %>
     <% end %>
   <% end %>
 
