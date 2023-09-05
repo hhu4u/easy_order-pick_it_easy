@@ -1,3 +1,11 @@
+<div class="button-container">
+  <% if @basket.orders.count.positive? %>
+    <%= form_with(url: confirm_path(@basket), html: {class: "w-100"}) do %>
+      <%= hidden_field_tag 'table_id', @table.id %>
+      <%= submit_tag 'Pay', class: 'btn btn-dark', id: 'pay' %>
+    <% end %>
+  <% end %>
+</div>
 <div class="page-container">
   <%= link_to restaurant_path(@restaurant) do %>
   <i class="fa-solid fa-arrow-left stretch arrow" id="arrow"></i>
@@ -32,12 +40,5 @@
         </div> %>
     </div>
   <% end %>
-  <% if @basket.orders.count.positive? %>
-    <%= form_with url: confirm_path(@basket) do %>
-      <%= hidden_field_tag 'table_id', @table.id %>
-      <%= submit_tag 'Pay', class: 'btn btn-primary', id: 'pay' %>
-    <% end %>
-  <% end %>
-
   </div>
 </div>

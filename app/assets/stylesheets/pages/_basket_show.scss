@@ -1,0 +1,12 @@
+.button-container {
+  height: 100vh;
+  position: fixed;
+  background-color: transparent;
+}
+
+#pay, #basket-btn {
+  position: absolute;
+  bottom: 10px;
+  width: 90vw;
+  margin: 0 5vw;
+}
