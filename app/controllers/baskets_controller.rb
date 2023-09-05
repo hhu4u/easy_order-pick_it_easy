@@ -33,16 +33,11 @@ class BasketsController < ApplicationController
           }
         ],
         mode: "payment",
-        success_url: table_basket_url(@table, @basket),
-        cancel_url: table_basket_url(@basket)
+        success_url: restaurant_table_basket_url(@restaurant, @table, @basket),
+        cancel_url: restaurant_table_basket_url(@restaurant, @table, @basket)
       )
 
-      sleep(5)
-    p @basket
-    p session.id
-    p @basket.checkout_session_id
-    p @basket.total_price
     @basket.update(checkout_session_id: session.id)
-    redirect_to session.success_url # path to check
+    redirect_to controller: "pages", action: "loading", basket: @basket # path to check
   end
 end
