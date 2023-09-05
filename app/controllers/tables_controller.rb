@@ -15,7 +15,13 @@ class TablesController < ApplicationController
     generate_qr_code
     @table.qr_code = @svg
     if @table.save
-      redirect_to restaurant_tables_path(@restaurant)
+      generate_qr_code
+      @table.qr_code = @svg
+      if @table.save
+        redirect_to restaurant_tables_path(@restaurant)
+      else
+        render :new
+      end
     else
       render :new
     end
