@@ -2,12 +2,12 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="refresh-list"
 export default class extends Controller {
-  static targets = [ "form", "list", "searchInput" ]
+  static targets = [ "form", "productsList", "searchInput" ]
 
   connect() {
     console.log(this.element);
     console.log(this.formTarget);
-    console.log(this.listTarget);
+    console.log(this.productsListTarget);
     console.log(this.searchInputTarget);
   }
 
@@ -16,7 +16,7 @@ export default class extends Controller {
     fetch(url, { headers: { 'Accept': 'text/plain' } })
       .then(response => response.text())
       .then((data) => {
-        console.log(data);
+        this.productsListTarget.outerHTML = data;
       })
   }
 
