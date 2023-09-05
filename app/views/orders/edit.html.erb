@@ -1,9 +1,11 @@
 <div class="product">
   <%= render "products/product", product: @product %>
-  <div class="prod-form">
-    <%= simple_form_for(@order) do |f| %>
-      <%= f.input :comments, label: false %>
-      <%= f.submit 'Update my comment', class:"btn btn-dark rounded mb-3 w-100" %>
-    <% end %>
+  <div class="prod-form button-container">
+    <div id="update-product">
+      <%= simple_form_for [@restaurant, @product, @order], html: {class: "w-100"} do |f| %>
+        <%= f.input :comments, label: false %>
+        <%= f.submit 'Update my comment', class:"btn btn-dark", id:"update-product-btn" %>
+      <% end %>
+    </div>
   </div>
 </div>
