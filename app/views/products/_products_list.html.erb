@@ -1,5 +1,6 @@
   <div class="sections" data-refresh-list-target="productsList">
       <% Product::DISH_TYPE.each do |type|  %>
+        <% unless products.where(dish_type: type).empty? %>
         <div id="<%= type.downcase.tr(" ", "-") %>">
         <h4 class="pt-2"><%= type %></h4>
           <%products.where(dish_type: type).each do |product|%>
@@ -22,5 +23,6 @@
             <% end %>
           <% end %>
         </div>
+        <% end %>
       <% end %>
 </div>
