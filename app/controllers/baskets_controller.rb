@@ -6,6 +6,10 @@ class BasketsController < ApplicationController
     @orders = Order.where(basket: @basket)
   end
 
+  def index
+    @baskets = Basket.where(user: current_user)
+  end
+
   def confirm_basket
 
     @basket = Basket.find(params[:id])
