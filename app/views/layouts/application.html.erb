@@ -12,7 +12,18 @@
     <%= javascript_importmap_tags %>
   </head>
   <body>
-    <%= render "shared/avatar" %>
+    <% unless current_page?(root_path) %>
+      <!-- Display the login button on every page except the home page -->
+      <%= render "shared/avatar" %>
+    <% else %>
+      <% unless user_signed_in? %>
+      <div class="d-none">
+        <%= render "shared/avatar" %>
+      </div>
+      <% else %>
+      <%= render "shared/avatar" %>
+    <% end %>
+    <% end %>
 
     <%# <body><%= render "shared/navbar" %>
     <%# <%= render "shared/flashes" %>

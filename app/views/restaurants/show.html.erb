@@ -25,7 +25,7 @@
       <h4 class="pt-2"><%= type %></h4>
         <%@products.where(dish_type: type).each do |product|%>
           <%= link_to restaurant_product_path(@restaurant,product) do %>
-          <div class="card-product d-flex ">
+          <div class="card-product d-flex">
              <div class="flex-fill">
                <div class="d-flex flex-row justify-content-between px-3 pt-3">
                 <h4 class="me-auto"><%= product.name %></h4>
@@ -48,6 +48,6 @@
 </div>
 <% unless @restaurant.user == current_user %>
   <div id="basket-btn" class="d-grid rounded container">
-    <button class="btn btn-dark" type="button"><%= link_to "See the cart (#{@basket.orders.count})", table_basket_path(@table, @basket), style: "text-decoration: none; color: white;" %></button><br>
+    <%= link_to "See the cart (#{@basket.orders.count})", table_basket_path(@table, @basket), style: "text-decoration: none; color: white;", class: "btn btn-dark", type:"button" %>
   </div>
 <% end %>
