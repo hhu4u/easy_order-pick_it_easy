@@ -35,7 +35,7 @@ restaurant.save
 
 puts "Creating tables"
 i = 1
-20.times do
+25.times do
   table = Table.new(number: i)
   table.restaurant = restaurant
   table.save
