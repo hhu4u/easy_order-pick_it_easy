@@ -9,6 +9,16 @@ class RestaurantsController < ApplicationController
     @basket = current_basket
     @table = current_basket.table
     @products = @restaurant.products
+
+    if params[:query].present?
+      sql_subquery = "name ILIKE :query OR ingredients ILIKE :query"
+      @products = @products.where(sql_subquery, query: "%#{params[:query]}%")
+    end
+
+    # respond_to do |format|
+    #   format.html # Follow regular flow of Rails
+    #   format.text { render partial: 'products_list.html', locals: { products: @products } }
+    # end
   end
 
   def new
