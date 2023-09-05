@@ -14,6 +14,7 @@ class OrdersController < ApplicationController
   end
 
   def edit
+    @restaurant = Restaurant.find(params[:restaurant_id])
     @order = Order.find(params[:id])
     @product = @order.product
   end
