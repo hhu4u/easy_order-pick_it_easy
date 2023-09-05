@@ -19,5 +19,10 @@ Rails.application.routes.draw do
   post 'baskets/:id', to: 'baskets#confirm_basket', as: 'confirm'
   get 'pages', to: 'pages#loading'
 
+  resources :baskets, only: :index do
+   resources :orders, only: :index
+  end
+
+
   resources :orders, only: ["destroy"]
 end
