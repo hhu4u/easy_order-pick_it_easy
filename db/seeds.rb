@@ -35,9 +35,18 @@ restaurant.save
 
 puts "Creating tables"
 i = 1
-50.times do
+20.times do
   table = Table.new(number: i)
   table.restaurant = restaurant
+  table.save
+  qr = RQRCode::QRCode.new("https://www.pickiteasy.me/restaurants/#{restaurant.id}/?table=#{table.id}")
+  @svg = qr.as_svg(
+    offset: 0,
+    color: '000',
+    shape_rendering: 'crispEdges',
+    standalone: true
+  )
+  table.qr_code = @svg
   table.save
   i += 1
 end
