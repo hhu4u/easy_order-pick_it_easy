@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :restaurants, only: ["new", "create", "update", "edit", "show", "index"] do
     resources :products, only: ["index", "show", "new", "create", "edit", "update", "destroy"] do
       resources :orders, only: ["create", "edit", "update", "destroy"] do
+        resources :reviews, only: :create
       end
     end
 
@@ -20,9 +21,8 @@ Rails.application.routes.draw do
   get 'pages', to: 'pages#loading'
 
   resources :baskets, only: :index do
-   resources :orders, only: :index
+    resources :orders, only: :index
   end
-
 
   resources :orders, only: ["destroy"]
 end

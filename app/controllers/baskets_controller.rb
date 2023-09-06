@@ -8,6 +8,7 @@ class BasketsController < ApplicationController
 
   def index
     @baskets = Basket.where(user: current_user)
+    @orders = Order.where(basket: @basket)
   end
 
   def confirm_basket

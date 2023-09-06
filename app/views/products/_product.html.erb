@@ -4,7 +4,7 @@
   <% else %>
     <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(https://t4.ftcdn.net/jpg/03/08/68/19/360_F_308681935_VSuCNvhuif2A8JknPiocgGR2Ag7D1ZqN.jpg)"></div>
   <% end %>
-  <div class="prod-details">
+  <div class="prod-details mb-4">
     <div class="d-flex justify-content-between">
        <h4 class="mt-3 fw-semibold"><%= product.name %></h4>
        <div class="icons pt-2">
@@ -22,9 +22,25 @@
     </div>
     <p class="fw-semibold"><%= product.price %> €</p>
     <p class="border-bottom pb-2 text-secondary fst-italic"><%= product.description %></p>
-    <% unless product.ingredients.empty? %>
+    <% unless product.ingredients.nil? %>
       <p class="fw-semibold">Ingredients:</p>
       <p><%= product.ingredients %></p>
+    <% end %>
+    <% if @number_of_reviews > 0 %>
+      <div class="reviews pt-5">
+      <h5>Reviews: <%= @number_of_reviews %></h4>
+      <div class="score pt-2">
+        <span class="gl-star-rating gl-star-rating--ltr" data-star-rating>
+          <span class="gl-star-rating--stars s0"  data-rating="0" >
+            <% @score.times do  %>
+              <span class="gl-active"></span>
+            <% end %>
+            <% (5-@score).times do %>
+              <span ></span>
+            <% end %>
+            </span>
+          </span>
+      </div>
     <% end %>
   </div>
 </div>
