@@ -25,4 +25,7 @@ Rails.application.routes.draw do
   end
 
   resources :orders, only: ["destroy"]
+
+  mount StripeEvent::Engine, at: '/stripe-webhooks'
+
 end

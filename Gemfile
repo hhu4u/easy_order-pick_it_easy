@@ -5,6 +5,8 @@ ruby "3.1.2"
 
 #Stripe payments
 gem 'stripe'
+gem 'stripe_event'
+gem 'sinatra'
 
 #Custom gems
 gem "cloudinary"

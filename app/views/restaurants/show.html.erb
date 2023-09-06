@@ -3,16 +3,15 @@
     <button id="basket-btn" class="btn btn-dark" type="button"><%= link_to "See the cart (#{@basket.orders.count})", restaurant_table_basket_path(@restaurant, @table, @basket), style: "text-decoration: none; color: white;" %></button><br>
   <% end %>
 </div>
-
 <% if @restaurant.user == current_user %>
   <%= link_to restaurants_path do %>
     <i class="fa-solid fa-arrow-left stretch arrow" id="arrow"></i>
   <% end %>
 <% end %>
 <% if @restaurant.photo.attached? %>
-  <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(<%= cl_image_path @restaurant.photo.key %>)"></div>
+  <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.0), rgba(0,0,0,0.4)), url(<%= cl_image_path @restaurant.photo.key %>)"></div>
 <% else %>
-  <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(https://t4.ftcdn.net/jpg/03/08/68/19/360_F_308681935_VSuCNvhuif2A8JknPiocgGR2Ag7D1ZqN.jpg)"></div>
+  <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.0), rgba(0,0,0,0.4)), url(https://t4.ftcdn.net/jpg/03/08/68/19/360_F_308681935_VSuCNvhuif2A8JknPiocgGR2Ag7D1ZqN.jpg)"></div>
 <% end %>
 <div class="container">
   <div class="d-flex justify-content-between">
@@ -51,10 +50,12 @@
                         } %>
     </div>
     <% end %>
-  <div class="container">
+  <div>
     <div class="ps-0 list-inline tabs-underlined">
       <% Product::DISH_TYPE.each do |type|  %>
-        <a href="#<%= type.downcase.tr(" ", "-") %>" class="tab-underlined"><%= type %></a>
+        <% unless @products.where(dish_type: type).empty? %>
+          <a href="#<%= type.downcase.tr(" ", "-") %>" class="tab-underlined"><%= type %></a>
+        <% end %>
       <% end %>
     </div>
     <%= render 'products/products_list', restaurant: @restaurant, products: @products %>
