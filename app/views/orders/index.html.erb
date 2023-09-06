@@ -20,9 +20,31 @@
             <%# <p><%= order.product.description </p> %>
             <p><%= order.comments %></p>
           <% end %>
+          <% if order.review.nil? %>
+            <div class="rating pt-3">
+              <%= simple_form_for [@restaurant,order.product, order, @review],  data: { controller: "form-submit", action: "click->form-submit#submit" } do |f| %>
+                <%= f.input :rating, collection: (1..5).to_a, label: false, input_html: {data: { controller: "star-rating", options: {tultip: false, clearable: false } } } %>
+                <%= f.submit class:"d-none" %>
+              <% end %>
+            </div>
+          <% else %>
+            <div class="rating pt-3">
+              <% rating = order.review.rating %>
+              <span class="gl-star-rating gl-star-rating--ltr" data-star-rating>
+                <span class="gl-star-rating--stars s0"  data-rating="0" >
+                  <% rating.times do  %>
+                    <span class="gl-active"></span>
+                  <% end %>
+                  <% (5-rating).times do %>
+                    <span ></span>
+                  <% end %>
+                </span>
+              </span>
+            </div>
+          <% end %>
         </div>
       </div>
-        <%= cl_image_tag order.product.photo.key, width: 400, height: 300, crop: :fill %>
+      <%= cl_image_tag order.product.photo.key, width: 400, height: 300, crop: :fill %>
     </div>
   <% end %>
   </div>

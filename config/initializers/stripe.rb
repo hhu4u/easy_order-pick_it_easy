@@ -1,16 +1,4 @@
-#require_relative 'stripe_checkout_session_service.rb'
-
-class StripeCheckoutSessionService
-  def call(event)
-    raise
-    basket = Basket.find_by(checkout_session_id: event.data.object.id)
-    basket.update(payment_status: 'paid')
-
-    puts "---------------------------------------------------------------"
-    puts "payment updated"
-  end
-end
-
+require_relative 'stripe_checkout_session_service'
 
 Rails.configuration.stripe = {
   publishable_key: ENV['STRIPE_PUBLISHABLE_KEY'],

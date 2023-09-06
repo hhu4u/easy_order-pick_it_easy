@@ -1,6 +1,6 @@
 <div class="button-container">
   <% unless @restaurant.user == current_user %>
-    <button id="basket-btn" class="btn btn-dark" type="button"><%= link_to "See the cart (#{@basket.orders.count})", restaurant_table_basket_path(@restaurant, @table, @basket), style: "text-decoration: none; color: white;" %></button><br>
+   <%= link_to "See the cart (#{@basket.orders.count})", restaurant_table_basket_path(@restaurant, @table, @basket), id: "basket-btn", class: "btn btn-dark", type: "button", style: "text-decoration: none; color: white;" %><br>
   <% end %>
 </div>
 <% if @restaurant.user == current_user %>

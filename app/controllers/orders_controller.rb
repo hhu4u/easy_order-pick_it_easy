@@ -3,6 +3,7 @@ class OrdersController < ApplicationController
     @basket = Basket.find(params[:basket_id])
     @restaurant = @basket.table.restaurant
     @orders = @basket.orders
+    @review = Review.new
   end
 
   def create

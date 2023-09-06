@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema[7.0].define(version: 2023_09_06_104334) do
+=======
+ActiveRecord::Schema[7.0].define(version: 2023_09_06_072245) do
+>>>>>>> master
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -77,6 +81,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_06_104334) do
     t.string "dish_type"
     t.string "ingredients"
     t.boolean "available", default: true
+    t.float "score"
     t.index ["restaurant_id"], name: "index_products_on_restaurant_id"
   end
 
@@ -87,6 +92,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_06_104334) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_restaurants_on_user_id"
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.integer "rating"
+    t.bigint "order_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["order_id"], name: "index_reviews_on_order_id"
   end
 
   create_table "tables", force: :cascade do |t|
@@ -119,5 +132,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_06_104334) do
   add_foreign_key "orders", "users"
   add_foreign_key "products", "restaurants"
   add_foreign_key "restaurants", "users"
+  add_foreign_key "reviews", "orders"
   add_foreign_key "tables", "restaurants"
 end
