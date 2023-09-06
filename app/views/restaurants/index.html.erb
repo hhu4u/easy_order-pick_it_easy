@@ -1,7 +1,23 @@
-<h1>My Restaurants</h1>
-
-<% @restaurants.each do |restaurant| %>
-  <h2><%= restaurant.name %></h2>
-  <p><%= restaurant.address  %></p>
-  <%= link_to "Edit Restaurant", edit_restaurant_path(restaurant) %>
-<% end %>
+<div class="container">
+  <h1 class="pt-5">My Restaurants</h1>
+  <div class="restaurant pt-4">
+    <% @restaurants.each do |restaurant| %>
+      <%= link_to restaurant_path(restaurant) do %>
+        <div class="card-product d-flex">
+          <div class="flex-fill">
+            <div class="d-flex flex-row justify-content-between px-3 pt-3 text-wrap">
+              <h4 class="me-auto"><%= restaurant.name %></h4>
+            </div>
+            <div class="ms-3 pe-3 pb-3"><p><%= restaurant.address %></p></div>
+            <div class="ms-3 pe-3 pb-3"> <%= link_to "Generate QR Codes", new_restaurant_table_path(restaurant) %></div>
+          </div>
+          <% if restaurant.photo.attached? %>
+            <%= cl_image_tag restaurant.photo.key, width: 400, height: 300, crop: :fill %>
+          <% else %>
+            <%=  image_tag "https://t4.ftcdn.net/jpg/03/08/68/19/360_F_308681935_VSuCNvhuif2A8JknPiocgGR2Ag7D1ZqN.jpg" %>
+          <% end %>
+        </div>
+       <% end %>
+    <% end %>
+  </div>
+</div>

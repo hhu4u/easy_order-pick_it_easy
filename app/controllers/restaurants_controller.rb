@@ -9,6 +9,16 @@ class RestaurantsController < ApplicationController
     @basket = current_basket
     @table = current_basket.table
     @products = @restaurant.products
+
+    if params[:query].present?
+      sql_subquery = "name ILIKE :query OR ingredients ILIKE :query"
+      @products = @products.where(sql_subquery, query: "%#{params[:query]}%")
+    end
+
+    respond_to do |format|
+      format.html # Follow regular flow of Rails
+      format.text { render partial: 'products/products_list', locals: { restaurant: @restaurant, products: @products }, formats: [:html] }
+    end
   end
 
   def new
@@ -19,7 +29,7 @@ class RestaurantsController < ApplicationController
     @restaurant = Restaurant.new(restaurant_params)
     @restaurant.user = current_user
     if @restaurant.save!
-      redirect_to restaurants_path
+      redirect_to restaurant_path(@restaurant)
     else
       render :new, status: :unprocessable_entity
     end

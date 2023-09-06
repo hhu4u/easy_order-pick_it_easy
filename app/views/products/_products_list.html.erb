@@ -1,0 +1,28 @@
+<div class="sections" data-refresh-list-target="productsList">
+      <% Product::DISH_TYPE.each do |type|  %>
+        <% unless products.where(dish_type: type).empty? %>
+          <div id="<%= type.downcase.tr(" ", "-") %>">
+          <h4 class="pt-2"><%= type %></h4>
+            <%products.where(dish_type: type).each do |product|%>
+              <%= link_to restaurant_product_path(restaurant,product) do %>
+                <div class="card-product d-flex ">
+                  <div class="flex-fill">
+                    <div class="d-flex flex-row justify-content-between px-3 pt-3">
+                      <h4 class="me-auto"><%= product.name %></h4>
+                      <%# <p class="pt-2 pb-1 text-break"><%= product.description </p> %>
+                      <h4><%= product.price %> €</h4>
+                    </div>
+                      <div class="ms-3 pe-3 pb-3"><p><%= product.ingredients %></p></div>
+                  </div>
+                    <% if product.photo.attached? %>
+                      <%= cl_image_tag product.photo.key, width: 400, height: 300, crop: :fill %>
+                    <% else %>
+                      <%=  image_tag "https://t4.ftcdn.net/jpg/03/08/68/19/360_F_308681935_VSuCNvhuif2A8JknPiocgGR2Ag7D1ZqN.jpg" %>
+                    <% end %>
+                </div>
+              <% end %>
+            <% end %>
+          </div>
+        <% end %>
+      <% end %>
+</div>

@@ -1,35 +1,45 @@
-<%= link_to restaurant_path(@restaurant) do %>
-<i class="fa-solid fa-arrow-left stretch arrow" id="arrow"></i>
-<%end%>
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(<%= cl_image_path @restaurant.photo.key %>)">
+<div class="button-container">
+  <% if @basket.orders.count.positive? %>
+    <%= form_with(url: confirm_path(@basket), html: {class: "w-100"}) do %>
+      <%= hidden_field_tag 'table_id', @table.id %>
+      <%= submit_tag 'Pay', class: 'btn btn-dark', id: 'pay' %>
+    <% end %>
+  <% end %>
 </div>
-<div class="container">
-<h1 class="text-center pt-4 pb-2"><%= @restaurant.name %></h1>
-<% @orders.each do |order| %>
-  <div class="d-flex order-card justify-content-between">
-    <div class="flex-fill">
-      <div class="d-flex flex-row justify-content-between px-3 pt-3">
-        <h4 class="me-auto pt-1"><%= order.product.name %></h4>
-        <%= link_to edit_restaurant_product_order_path(@restaurant, order.product, order) do %>
-          <i class="fa-regular fa-pen-to-square px-2"></i>
-        <% end %>
-        <%= link_to restaurant_product_order_path(@restaurant, order.product, order), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
-          <i class="fa-regular fa-trash-can"></i>
-        <% end %>
-      </div>
-      <div class="ms-3 pe-3 pb-3 comm">
-        <h6 class="pt-2"><%= order.product.price %> €</h6>
-        <%# <p>Your preferences :</p> %>
-        <%# <p><%= order.product.description </p> %>
-        <p class="text-break"><%= order.comments %></p>
-      </div>
-    </div>
-       <%= cl_image_tag order.product.photo.key, width: 400, crop: :fill %>
-
-      <%# <div class="crud">
-          <i class="fa-regular fa-pen-to-square" style="color: #000000;"></i>
-          <i class="fa-solid fa-trash" style="color: #000000;"></i>
-      </div> %>
+<div class="page-container">
+  <%= link_to restaurant_path(@restaurant) do %>
+  <i class="fa-solid fa-arrow-left stretch arrow" id="arrow"></i>
+  <% end %>
+  <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(<%= cl_image_path @restaurant.photo.key %>)">
   </div>
-<% end %>
+  <div class="container">
+  <h1 class="text-center pt-4 pb-2"><%= @restaurant.name %></h1>
+  <% @orders.each do |order| %>
+    <div class="d-flex order-card justify-content-between">
+      <div class="flex-fill">
+        <div class="d-flex flex-row justify-content-between px-3 pt-3">
+          <h4 class="me-auto pt-1"><%= order.product.name %></h4>
+          <%= link_to edit_restaurant_product_order_path(@restaurant, order.product, order) do %>
+            <i class="fa-regular fa-pen-to-square px-2"></i>
+          <% end %>
+          <%= link_to restaurant_product_order_path(@restaurant, order.product, order), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
+            <i class="fa-regular fa-trash-can"></i>
+          <% end %>
+        </div>
+        <div class="ms-3 pe-3 pb-3">
+          <h6 class="pt-2"><%= order.product.price %> €</h6>
+          <%# <p>Your preferences :</p> %>
+          <%# <p><%= order.product.description </p> %>
+          <p class="text-break"><%= order.comments %></p>
+        </div>
+      </div>
+        <%= cl_image_tag order.product.photo.key, width: 400, height: 300, crop: :fill %>
+
+        <%# <div class="crud">
+            <i class="fa-regular fa-pen-to-square" style="color: #000000;"></i>
+            <i class="fa-solid fa-trash" style="color: #000000;"></i>
+        </div> %>
+    </div>
+  <% end %>
+  </div>
 </div>

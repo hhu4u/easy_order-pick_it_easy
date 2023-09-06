@@ -1,10 +1,10 @@
 <%= link_to restaurant_path(@restaurant) do %>
   <i class="fa-solid fa-arrow-left stretch arrow" id="arrow"></i>
 <%end%>
-<div class="container">
+<div class="container pt-5">
   <h1>Add product</h1>
 </div>
-<div class="container">
+<div class="container pt-5">
   <%= simple_form_for [@restaurant, @product] do |f| %>
       <%= f.input :name %>
       <%= f.input :description %>
