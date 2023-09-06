@@ -18,7 +18,7 @@
     <div class="d-flex justify-content-start">
       <h1 class="pt-3 lh-1"><%= @restaurant.name %></h1>
       <% if @restaurant.user == current_user %>
-        <div class="icon pl-4">
+        <div class="icon pt-1">
           <%= link_to edit_restaurant_path(@restaurant) do %>
             <i class="fa-regular fa-pen-to-square fa-lg px-4 pt-4" style="color: #000000;"></i>
           <% end %>
@@ -27,7 +27,7 @@
     </div>
       <% if current_user.restaurants.any? %>
         <% if current_user.restaurants.include?(@restaurant)  %>
-          <div class="icons pt-3">
+          <div class="icons pt-1">
             <%= link_to new_restaurant_product_path(@restaurant) do %>
               <i class="fa-solid fa-circle-plus pt-4 pr-3 fa-2xl" style="color: #000000;" ></i>
             <% end %>
