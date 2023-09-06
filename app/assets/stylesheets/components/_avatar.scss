@@ -24,4 +24,20 @@
   position: absolute;
   top: 10px;
   right: 10px;
+  // position: relative;
+  // width: 100%;
+  // overflow: hidden;
+}
+
+
+
+.content-page{
+  width: 80vw; /* Adjust as needed */
+  height: 100vh;
+  background-color: #fff; /* Example background color */
+  position: fixed;
+  right:100%;
+  right: -300px; /* Initial position to hide it */
+  top: 0;
+  transition: right 0.3s ease; /* Add a transition for smooth sliding */
 }

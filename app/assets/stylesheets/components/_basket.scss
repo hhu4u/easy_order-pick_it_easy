@@ -1,6 +1,6 @@
 .order-card{
   overflow: hidden;
-  height: 120px;
+  // height: 120px;
   background: white;
   box-shadow: 0 0 15px rgba(19, 19, 19, 0.2);
   // border-radius:10px;
@@ -20,6 +20,13 @@
   font-weight: bold;
   margin: 0;
 }
+
+.order-card h6{
+  font-size: 13px;
+  font-weight: bold;
+  margin: 0;
+}
+
 .order-card i{
   color: black;
 }
@@ -31,7 +38,10 @@
   margin-top: 8px;
 }
 .order-card img{
-  height: 100%;
+  // height: 100%;
   width: 120px;
   object-fit: cover;
 }
+// .comm{
+//   width:235px
+// }

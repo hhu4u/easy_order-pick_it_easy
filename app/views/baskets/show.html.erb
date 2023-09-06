@@ -9,15 +9,15 @@
 <div class="page-container">
   <%= link_to restaurant_path(@restaurant) do %>
   <i class="fa-solid fa-arrow-left stretch arrow" id="arrow"></i>
-  <%end%>
+  <% end %>
   <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(<%= cl_image_path @restaurant.photo.key %>)">
   </div>
   <div class="container">
   <h1 class="text-center pt-4 pb-2"><%= @restaurant.name %></h1>
   <% @orders.each do |order| %>
-    <div class="d-flex order-card">
+    <div class="d-flex order-card justify-content-between">
       <div class="flex-fill">
-        <div class="d-flex flex-row justify-content-between px-3 pt-3 text-wrap">
+        <div class="d-flex flex-row justify-content-between px-3 pt-3">
           <h4 class="me-auto pt-1"><%= order.product.name %></h4>
           <%= link_to edit_restaurant_product_order_path(@restaurant, order.product, order) do %>
             <i class="fa-regular fa-pen-to-square px-2"></i>
@@ -27,9 +27,10 @@
           <% end %>
         </div>
         <div class="ms-3 pe-3 pb-3">
-          <p>Your preferences :</p>
+          <h6 class="pt-2"><%= order.product.price %> €</h6>
+          <%# <p>Your preferences :</p> %>
           <%# <p><%= order.product.description </p> %>
-          <p><%= order.comments %></p>
+          <p class="text-break"><%= order.comments %></p>
         </div>
       </div>
         <%= cl_image_tag order.product.photo.key, width: 400, height: 300, crop: :fill %>

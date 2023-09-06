@@ -3,7 +3,6 @@
     <button id="basket-btn" class="btn btn-dark" type="button"><%= link_to "See the cart (#{@basket.orders.count})", restaurant_table_basket_path(@restaurant, @table, @basket), style: "text-decoration: none; color: white;" %></button><br>
   <% end %>
 </div>
-
 <% if @restaurant.user == current_user %>
   <%= link_to restaurants_path do %>
     <i class="fa-solid fa-arrow-left stretch arrow" id="arrow"></i>
