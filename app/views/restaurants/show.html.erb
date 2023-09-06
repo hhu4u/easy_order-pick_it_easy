@@ -16,7 +16,7 @@
 <div class="container">
   <div class="d-flex justify-content-between">
     <div class="d-flex justify-content-start">
-      <h1 class="pt-3 lh-1"><%= @restaurant.name %></h1>
+      <h1 class="pt-3 pb-1 lh-1"><%= @restaurant.name %></h1>
       <% if @restaurant.user == current_user %>
         <div class="icon pt-1">
           <%= link_to edit_restaurant_path(@restaurant) do %>
@@ -35,7 +35,7 @@
         <% end %>
       <% end %>
   </div>
-  <p class="fw-light lh-1"><%= @restaurant.address %></p>
+  <%# <p class="fw-light lh-1"><%= @restaurant.address </p> %>
 </div>
 <div class="container" data-controller="refresh-list">
   <div class="container-search">
