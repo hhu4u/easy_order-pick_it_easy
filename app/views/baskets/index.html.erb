@@ -2,29 +2,33 @@
   <h1>My orders</h1>
 </div>
 <div class="container baskets pt-5">
-  <% @baskets.each do |basket| %>
-    <%= link_to basket_orders_path(basket) do %>
-      <div class="d-flex order-card">
-        <div class="flex-fill">
-          <div class="d-flex flex-row justify-content-between px-3 pt-3 text-wrap">
-            <h4 class="me-auto pt-1"><%= basket.table.restaurant.name %></h4>
+  <% if @orders.any? %>
+    <% @baskets.each do |basket| %>
+      <%= link_to basket_orders_path(basket) do %>
+        <div class="d-flex order-card">
+          <div class="flex-fill">
+            <div class="d-flex flex-row justify-content-between px-3 pt-3 text-wrap">
+              <h4 class="me-auto pt-1"><%= basket.table.restaurant.name %></h4>
+            </div>
+            <div class="ms-3 pe-3 pb-3">
+              <p><%= basket.orders.last.created_at.to_date.strftime('%d-%m-%Y') %></p>
+              <%# <p><%= order.product.description </p> %>
+              <% products = [] %>
+              <% basket.orders.each do |order| %>
+                <% products.push(order.product.name) %>
+              <% end %>
+              <p><%= products.join(', ') %></p>
+            </div>
           </div>
-          <div class="ms-3 pe-3 pb-3">
-            <p><%= basket.orders.last.created_at.to_date.strftime('%d-%m-%Y') %></p>
-            <%# <p><%= order.product.description </p> %>
-            <% products = [] %>
-            <% basket.orders.each do |order| %>
-              <% products.push(order.product.name) %>
+            <% if basket.table.restaurant.photo.attached? %>
+              <%= cl_image_tag basket.table.restaurant.photo.key, width: 400, height: 300, crop: :fill %>
+            <% else %>
+              <%=  image_tag "https://t4.ftcdn.net/jpg/03/08/68/19/360_F_308681935_VSuCNvhuif2A8JknPiocgGR2Ag7D1ZqN.jpg" %>
             <% end %>
-            <p><%= products.join(', ') %></p>
-          </div>
         </div>
-          <% if basket.table.restaurant.photo.attached? %>
-            <%= cl_image_tag basket.table.restaurant.photo.key, width: 400, height: 300, crop: :fill %>
-          <% else %>
-            <%=  image_tag "https://t4.ftcdn.net/jpg/03/08/68/19/360_F_308681935_VSuCNvhuif2A8JknPiocgGR2Ag7D1ZqN.jpg" %>
-          <% end %>
-      </div>
+      <% end %>
     <% end %>
+  <% else %>
+    <p>No Orders</p>
   <% end %>
 </div>

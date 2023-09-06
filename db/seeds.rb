@@ -341,21 +341,21 @@ product21.save
 
 puts "Creating owner1 basket"
 basket1 = Basket.new
-basket1.table = Table.first
+basket1.table = owner2.restaurants.first.tables.first
 basket1.basket_status = "New"
 basket1.user = owner1
 basket1.save
 
 puts "Creating owner2 basket"
 basket2 = Basket.new
-basket2.table = Table.first
+basket2.table = owner1.restaurants.first.tables.first
 basket2.basket_status = "New"
 basket2.user = owner2
 basket2.save
 
 puts "Creating customer's basket"
 basket3 = Basket.new
-basket3.table = Table.last
+basket3.table = owner2.restaurants.first.tables.first
 basket3.basket_status = "New"
 basket3.user = customer1
 basket3.save

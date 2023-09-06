@@ -10,6 +10,7 @@ class User < ApplicationRecord
   has_many :orders
   has_many :baskets
   has_many :restaurants
+  has_many :reviews, through: :orders
 
   # private
 
