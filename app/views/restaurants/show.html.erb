@@ -51,7 +51,7 @@
                         } %>
     </div>
     <% end %>
-  <div class="container">
+  <div>
     <div class="ps-0 list-inline tabs-underlined">
       <% Product::DISH_TYPE.each do |type|  %>
         <% unless @products.where(dish_type: type).empty? %>

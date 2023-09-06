@@ -93,7 +93,8 @@ description: "A succulent beef patty, seared to perfection and crowned with melt
 dish_type: "Main Courses")
 # file = URI.open("https://www.thecookierookie.com/wp-content/uploads/2023/04/featured-stovetop-burgers-recipe.jpg")
 # file = URI.open("https://wallpapercave.com/wp/wp1987065.jpg")
-file = URI.open("https://images.unsplash.com/photo-1550547660-d9450f859349?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1965&q=80.jpg")
+# file = URI.open("https://images.unsplash.com/photo-1550547660-d9450f859349?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1965&q=80.jpg")
+file = URI.open("https://resize-elle.ladmedia.fr/rcrop/638,,forcex/img/var/plain_site/storage/images/elle-a-table/les-dossiers-de-la-redaction/dossier-de-la-redac/hamburger-maison/94060670-1-fre-FR/Comment-preparer-le-meilleur-hamburger-maison-du-monde.jpg")
 product1.photo.attach(io: file, filename: "1.jpg", content_type: "image/jpg")
 product1.restaurant = restaurant1
 product1.save
@@ -103,7 +104,8 @@ product2 = Product.new(name: "Italian Lasagna",
                        ingredients: "Ground beef, Onion, Garlic cloves, minced, Tomatoes, Olive oil, Dried oregano, Dried basil, Bay leaves",
                        description: "Crispy and golden on the outside and juicy in the middle, so delicious.",
                        dish_type: "Main Courses")
-file = URI.open("https://www.finedininglovers.com/sites/g/files/xknfdk626/files/styles/recipes_1200_800/public/2022-11/THE_SECRET_OF_ITALIAN_FOOD_LASAGNA_00.jpeg.webp?itok=VELk23pO")
+# file = URI.open("https://www.finedininglovers.com/sites/g/files/xknfdk626/files/styles/recipes_1200_800/public/2022-11/THE_SECRET_OF_ITALIAN_FOOD_LASAGNA_00.jpeg.webp?itok=VELk23pO")
+file = URI.open("https://carlocao.com/wp-content/uploads/2022/06/CAR1034.jpg")
 product2.photo.attach(io: file, filename: "2.jpg", content_type: "image/jpg")
 product2.restaurant = restaurant1
 product2.save
@@ -247,51 +249,6 @@ product16.photo.attach(io: file, filename: "16.jpg", content_type: "image/jpg")
 product16.restaurant = restaurant1
 product16.save
 
-product17 = Product.new(name: "Margarita",
-  price: 9.00,
-  ingredients: "Tequila, lime juice, orange liqueur (such as triple sec or Cointreau), and optionally, a salted rim.",
-  dish_type: "Cocktails")
-file = URI.open("https://delicerecipes.com/wp-content/uploads/2021/01/Frozen-Margarita-Cocktail.jpg")
-product17.photo.attach(io: file, filename: "17.jpg", content_type: "image/jpg")
-product17.restaurant = restaurant1
-product17.save
-
-product18 = Product.new(name: "Martini",
-  price: 12.00,
-  ingredients: "Vodka, vermouth, and sometimes garnished with an olive or lemon twist.",
-  dish_type: "Cocktails")
-file = URI.open("https://th.bing.com/th/id/OIP.9cRJxikcOOmYhn_bi9fdiwHaLF?pid=ImgDet&rs=1")
-product18.photo.attach(io: file, filename: "18.jpg", content_type: "image/jpg")
-product18.restaurant = restaurant1
-product18.save
-
-product19 = Product.new(name: "Moscow Mule",
-  price: 9.00,
-  ingredients: "Vodka, ginger beer, and lime juice, often garnished with a lime wedge.",
-   dish_type: "Cocktails")
-file = URI.open("https://i.pinimg.com/originals/6c/53/78/6c5378104581dec54026d13e703c3dad.jpg")
-product19.photo.attach(io: file, filename: "19.jpg", content_type: "image/jpg")
-product19.restaurant = restaurant1
-product19.save
-
-product20 = Product.new(name: "Mojito",
-  price: 10.00,
-  ingredients: "White rum, fresh mint leaves, lime juice, simple syrup, soda water, and plenty of ice.",
-   dish_type: "Cocktails")
-file = URI.open("https://th.bing.com/th/id/R.b61e87af03c84452e4aeaa38b65a2f89?rik=pmpvRnJhh0svDA&pid=ImgRaw&r=0")
-product20.photo.attach(io: file, filename: "20.jpg", content_type: "image/jpg")
-product20.restaurant = restaurant1
-product20.save
-
-product21 = Product.new(name: "Cosmopolitan",
-  price: 12.00,
-  ingredients: "Vodka, cranberry juice, orange liqueur, and freshly squeezed lime juice.",
-   dish_type: "Cocktails")
-file = URI.open("https://i.pinimg.com/originals/ec/69/32/ec69320a94b481e7650f7ff71d77ffc5.jpg")
-product21.photo.attach(io: file, filename: "21.jpg", content_type: "image/jpg")
-product21.restaurant = restaurant1
-product21.save
-
 product22 = Product.new(name: "Tonic Water",
   price: 5.00,
    dish_type: "Soft drinks")
@@ -324,14 +281,71 @@ product25.photo.attach(io: file, filename: "25.jpg", content_type: "image/jpg")
 product25.restaurant = restaurant1
 product25.save
 
-puts "Creating owner 1 basket"
+product26 = Product.new(name: "Steak Frites",
+                       price: 22.00,
+                       ingredients: "Flank Steak, french fries, mayonnaise, assorted vegetables",
+                       description: "Grilled Herb-Crusted Steak served with perfectly crispy hand-cut fries, a symphony of flavors and textures that will tantalize your taste buds. Elevate your dining experience with this classic dish, artfully crafted with a touch of elegance.",
+                       dish_type: "Main Courses")
+file = URI.open("https://www.piedmontese.com/Content/Images/_Piedmontese/RecipePhotos/0-Steak-Frites.jpg")
+product26.photo.attach(io: file, filename: "26.jpg", content_type: "image/jpg")
+product26.restaurant = restaurant1
+product26.save
+
+puts "Creating owner2 restaurant products"
+
+product17 = Product.new(name: "Margarita",
+  price: 9.00,
+  ingredients: "Tequila, lime juice, orange liqueur (such as triple sec or Cointreau), and optionally, a salted rim.",
+  dish_type: "Cocktails")
+file = URI.open("https://delicerecipes.com/wp-content/uploads/2021/01/Frozen-Margarita-Cocktail.jpg")
+product17.photo.attach(io: file, filename: "17.jpg", content_type: "image/jpg")
+product17.restaurant = restaurant2
+product17.save
+
+product18 = Product.new(name: "Martini",
+  price: 12.00,
+  ingredients: "Vodka, vermouth, and sometimes garnished with an olive or lemon twist.",
+  dish_type: "Cocktails")
+file = URI.open("https://th.bing.com/th/id/OIP.9cRJxikcOOmYhn_bi9fdiwHaLF?pid=ImgDet&rs=1")
+product18.photo.attach(io: file, filename: "18.jpg", content_type: "image/jpg")
+product18.restaurant = restaurant2
+product18.save
+
+product19 = Product.new(name: "Moscow Mule",
+  price: 9.00,
+  ingredients: "Vodka, ginger beer, and lime juice, often garnished with a lime wedge.",
+   dish_type: "Cocktails")
+file = URI.open("https://i.pinimg.com/originals/6c/53/78/6c5378104581dec54026d13e703c3dad.jpg")
+product19.photo.attach(io: file, filename: "19.jpg", content_type: "image/jpg")
+product19.restaurant = restaurant2
+product19.save
+
+product20 = Product.new(name: "Mojito",
+  price: 10.00,
+  ingredients: "White rum, fresh mint leaves, lime juice, simple syrup, soda water, and plenty of ice.",
+   dish_type: "Cocktails")
+file = URI.open("https://th.bing.com/th/id/R.b61e87af03c84452e4aeaa38b65a2f89?rik=pmpvRnJhh0svDA&pid=ImgRaw&r=0")
+product20.photo.attach(io: file, filename: "20.jpg", content_type: "image/jpg")
+product20.restaurant = restaurant2
+product20.save
+
+product21 = Product.new(name: "Cosmopolitan",
+  price: 12.00,
+  ingredients: "Vodka, cranberry juice, orange liqueur, and freshly squeezed lime juice.",
+   dish_type: "Cocktails")
+file = URI.open("https://i.pinimg.com/originals/ec/69/32/ec69320a94b481e7650f7ff71d77ffc5.jpg")
+product21.photo.attach(io: file, filename: "21.jpg", content_type: "image/jpg")
+product21.restaurant = restaurant2
+product21.save
+
+puts "Creating owner1 basket"
 basket1 = Basket.new
 basket1.table = Table.first
 basket1.basket_status = "New"
 basket1.user = owner1
 basket1.save
 
-puts "Creating owner 2 basket"
+puts "Creating owner2 basket"
 basket2 = Basket.new
 basket2.table = Table.first
 basket2.basket_status = "New"
