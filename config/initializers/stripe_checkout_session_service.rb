@@ -1,7 +1,6 @@
 puts "Its being loaded"
 class StripeCheckoutSessionService
   def call(event)
-    raise
     current_basket = Basket.find_by(checkout_session_id: event.data.object.id)
     current_basket.update(payment_status: 'paid')
     current_basket.update(basket_status: 'closed')
