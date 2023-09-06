@@ -5,7 +5,7 @@ class StripeCheckoutSessionService
     current_basket.update(basket_status: 'closed')
 
     new_basket = Basket.new(basket_status: 'New')
-    user = current_user
+    user = current_basket.user
     new_basket.table = current_basket.table
     new_basket.user = user
     new_basket.save!
