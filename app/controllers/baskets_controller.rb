@@ -28,8 +28,6 @@ class BasketsController < ApplicationController
           quantity: 1,
           price_data: {
             unit_amount: @basket.total_price.to_i * 100,
-            # raise
-            # unit_amount: 3000.00,
             currency: 'eur',
             product_data: {
               name: "#{@restaurant.name} - Table #{@table.number}"
@@ -37,7 +35,7 @@ class BasketsController < ApplicationController
           }
         ],
         mode: "payment",
-        success_url: restaurant_table_basket_url(@restaurant, @table, @basket),
+        success_url: restaurant_url(@restaurant),
         cancel_url: restaurant_table_basket_url(@restaurant, @table, @basket)
       )
 
