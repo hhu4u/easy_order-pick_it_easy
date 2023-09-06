@@ -2,8 +2,8 @@ require_relative 'stripe_checkout_session_service'
 
 Rails.configuration.stripe = {
   publishable_key: ENV['STRIPE_PUBLISHABLE_KEY'],
-  secret_key:      ENV['STRIPE_SECRET_KEY']
-  # signing_secret:  ENV['STRIPE_WEBHOOK_SECRET_KEY']
+  secret_key:      ENV['STRIPE_SECRET_KEY'],
+  signing_secret:  ENV['STRIPE_WEBHOOK_SECRET_KEY']
 }
 
 Stripe.api_key = Rails.configuration.stripe[:secret_key]
@@ -13,7 +13,6 @@ StripeEvent.configure do |events|
   events.subscribe 'checkout.session.completed', StripeCheckoutSessionService.new
 end
 
-# endpoint_secret = 'whsec_bd1c4d83c5080e1ec0b5a3d067dca56f0566ab4b4a5cec0a6a02a64da8f848cd'
 
 # set :port, 4242
 
