@@ -7,6 +7,14 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
     @restaurant = Restaurant.find(params[:restaurant_id])
     @order = Order.new
+    @number_of_reviews = @product.reviews.count
+    sum = 0
+    if @number_of_reviews > 0
+      @product.reviews.each do |review|
+        sum += review.rating
+      end
+      @score = sum / @number_of_reviews
+    end
   end
 
   def new
