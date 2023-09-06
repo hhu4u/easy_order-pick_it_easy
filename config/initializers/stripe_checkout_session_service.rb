@@ -1,4 +1,3 @@
-puts "Its being loaded"
 class StripeCheckoutSessionService
   def call(event)
     current_basket = Basket.find_by(checkout_session_id: event.data.object.id)
