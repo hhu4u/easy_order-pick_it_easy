@@ -51,10 +51,12 @@
                         } %>
     </div>
     <% end %>
-  <div class="container">
+  <div>
     <div class="ps-0 list-inline tabs-underlined">
       <% Product::DISH_TYPE.each do |type|  %>
-        <a href="#<%= type.downcase.tr(" ", "-") %>" class="tab-underlined"><%= type %></a>
+        <% unless @products.where(dish_type: type).empty? %>
+          <a href="#<%= type.downcase.tr(" ", "-") %>" class="tab-underlined"><%= type %></a>
+        <% end %>
       <% end %>
     </div>
     <%= render 'products/products_list', restaurant: @restaurant, products: @products %>
