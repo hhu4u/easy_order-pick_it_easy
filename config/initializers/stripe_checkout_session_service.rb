@@ -1,3 +1,4 @@
+puts "Its being loaded"
 class StripeCheckoutSessionService
   def call(event)
     raise
