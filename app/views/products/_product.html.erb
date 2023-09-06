@@ -22,7 +22,7 @@
     </div>
     <p class="fw-semibold"><%= product.price %> €</p>
     <p class="border-bottom pb-2 text-secondary fst-italic"><%= product.description %></p>
-    <% unless product.ingredients.empty? %>
+    <% unless product.ingredients.present? %>
       <p class="fw-semibold">Ingredients:</p>
       <p><%= product.ingredients %></p>
     <% end %>

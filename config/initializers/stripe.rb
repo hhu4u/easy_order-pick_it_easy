@@ -13,7 +13,6 @@ StripeEvent.configure do |events|
   events.subscribe 'checkout.session.completed', StripeCheckoutSessionService.new
 end
 
-# endpoint_secret = 'whsec_bd1c4d83c5080e1ec0b5a3d067dca56f0566ab4b4a5cec0a6a02a64da8f848cd'
 
 # set :port, 4242
 

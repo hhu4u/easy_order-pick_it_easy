@@ -1,5 +1,6 @@
 <div class="dropdown">
-  <a href="#" class="avatar" id="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+<div data-bs-toggle="offcanvas" data-bs-target="#avatarOffcanvas">
+  <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     <% if user_signed_in? %>
       <% if current_user.photo.attached? %>
         <%= cl_image_tag current_user.photo.key, class: "avatar", alt: "dropdown menu" %>
@@ -13,18 +14,52 @@
       <%= image_tag "https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg", class: "avatar", alt: "dropdown menu" %>
     <% end %>
   </a>
+</div>
   <% if user_signed_in? %>
-     <div class="dropdown-menu dropdown-menu-end content-page" id="content-page" aria-labelledby="navbarDropdown">
+     <div style="width:70vw;" class="dropdown-menu dropdown-menu-end content-page offcanvas  offcanvas-end" tabindex="-1" id="avatarOffcanvas" aria-labelledby="avatarOffcanvasLabel" aria-labelledby="navbarDropdown">
+     <div class="d-flex flex-row m-3" data-bs-dismiss="offcanvas" aria-label="Close">
+      <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <% if user_signed_in? %>
+          <% if current_user.photo.attached? %>
+            <%= cl_image_tag current_user.photo.key, class: "avatar", alt: "dropdown menu" %>
+            <%# <% image_key = current_user.photo.key %>
+            <%# <% image_url = "http://res.cloudinary.com/dwdyjpnms/image/upload/g_face/v1/development/#{image_key}" %>
+            <%# <%= image_tag(image_url, class: "avatar", alt: "dropdown menu") %>
+          <% else %>
+           <%= image_tag "https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg", class: "avatar", alt: "dropdown menu" %>
+          <% end %>
+        <% else %>
+          <%= image_tag "https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg", class: "avatar", alt: "dropdown menu" %>
+        <% end %>
+      </a>
+       <p class="p-2"><%= "#{current_user.first_name} #{current_user.last_name}" %></p>
+      </div>
         <%= link_to "Edit Profile", edit_user_registration_path, class: "dropdown-item" %>
         <% if  current_user.restaurants.any? %>
           <%= link_to "My Restaurants", restaurants_path, class: "dropdown-item" %>
         <% end %>
-        <%= link_to "My Orders", baskets_path, class: "dropdown-item" %>
+        <%# <%= link_to "My Orders", "#", class: "dropdown-item" %>
         <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
     </div>
   <% else %>
-     <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-      <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+     <div style="width:70vw;" class="dropdown-menu dropdown-menu-end content-page offcanvas offcanvas-end" tabindex="-1" id="avatarOffcanvas" aria-labelledby="avatarOffcanvasLabel" aria-labelledby="navbarDropdown">
+     <div class="m-3" data-bs-dismiss="offcanvas" aria-label="Close">
+      <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <% if user_signed_in? %>
+          <% if current_user.photo.attached? %>
+            <%= cl_image_tag current_user.photo.key, class: "avatar", alt: "dropdown menu" %>
+            <%# <% image_key = current_user.photo.key %>
+            <%# <% image_url = "http://res.cloudinary.com/dwdyjpnms/image/upload/g_face/v1/development/#{image_key}" %>
+            <%# <%= image_tag(image_url, class: "avatar", alt: "dropdown menu") %>
+          <% else %>
+           <%= image_tag "https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg", class: "avatar", alt: "dropdown menu" %>
+          <% end %>
+        <% else %>
+          <%= image_tag "https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg", class: "avatar", alt: "dropdown menu" %>
+        <% end %>
+      </a>
+      </div>
+      <%= link_to "Login", new_user_session_path, class: "nav-link m-3" %>
     </div>
   <% end %>
-  </div>
+</div>

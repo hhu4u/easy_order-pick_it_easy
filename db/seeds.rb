@@ -158,7 +158,8 @@ product7 = Product.new(name: "Caprese Skewers",
                        description: "These colorful caprese salad skewers with bite-sized portions are perfect for holiday parties",
                        dish_type: "Starters")
 # file = URI.open("https://thumbs.dreamstime.com/b/fresh-tomato-mozzarella-balls-basil-platter-plate-toothpicks-55833406.jpg")
-file = URI.open("https://i.pinimg.com/564x/d9/73/e7/d973e70090456dc9bbbf27f58a83ef3e.jpg")
+# file = URI.open("https://i.pinimg.com/564x/d9/73/e7/d973e70090456dc9bbbf27f58a83ef3e.jpg")
+file = URI.open("https://th.bing.com/th/id/R.891ad3e165e86418da6b02cf11a2b28f?rik=JsMDriL4QQKjzg&riu=http%3a%2f%2fwww.cookincanuck.com%2fwp-content%2fuploads%2f2016%2f06%2fCapresePotatoSkewersFinal.jpg&ehk=GE6XaVZBjqWRSewSeJl%2bZvSWMMEdmo4MF9JxoLXOy7Q%3d&risl=&pid=ImgRaw&r=0")
 product7.photo.attach(io: file, filename: "7.jpg", content_type: "image/jpg")
 product7.restaurant = restaurant1
 product7.save
@@ -169,7 +170,7 @@ product8 = Product.new(name: "Spring Rolls",
                        ingredients: "cabbage, carrot, bean sprouts, glass noodles, green onions, mushrooms, garlic, soy sauce",
                        description: "Delight in these crispy spring rolls filled with a medley of vegetables and vermicelli noodles",
                        dish_type: "Starters")
-file = URI.open("https://www.tasteofhome.com/wp-content/uploads/2018/01/Easy-Egg-Rolls_EXPS_FT21_13235_F_1029_1.jpg?fit=700,1024")
+file = URI.open("https://bing.com/th?id=OSK.589ddc5f292c25bc3eca86dddab837f1")
 product8.photo.attach(io: file, filename: "8.jpg", content_type: "image/jpg")
 product8.restaurant = restaurant1
 product8.save
@@ -179,7 +180,7 @@ product9 = Product.new(name: "Satay Skewers",
                        ingredients: " chicken, soy sauce, fish sauce, brown sugar, cumin, garlic, ginger, Pepper,  Peanut Sauce",
                        description: "Embark with these tender chicken skewers marinated in fragrant spices and served with a rich peanut sauce.",
                        dish_type: "Starters")
-file = URI.open("https://www.aheadofthyme.com/wp-content/uploads/2020/07/satay-chicken-skewers-with-peanut-sauce-8.jpg")
+file = URI.open("https://www.currytrail.in/wp-content/uploads/2016/08/IMG_5188-720x720.jpg")
 product9.photo.attach(io: file, filename: "9.jpg", content_type: "image/jpg")
 product9.restaurant = restaurant1
 product9.save
@@ -199,7 +200,7 @@ product11 = Product.new(name: "Fruit Parfait",
                         ingredients: "Fresh mixed fruits, Yogurt, cerel, maple syrup, Nuts, Fresh mint leaves",
                         description: "A fruit parfait is a refreshing and healthier dessert option. The layers provide a satisfying mix of textures and flavors",
                         dish_type: "Desserts")
-file = URI.open("https://bing.com/th?id=OSK.8267302d177279b408cc1a9d9613d616")
+file = URI.open("https://www.veggieinspired.com/wp-content/uploads/2016/03/coconut-chia-seed-granola-hero-1024x1536.jpg")
 product11.photo.attach(io: file, filename: "11.jpg", content_type: "image/jpg")
 product11.restaurant = restaurant1
 product11.save
@@ -220,7 +221,7 @@ product13 = Product.new(name: "Peach Cobbler",
                         ingredients: " fresh peaches, granulated sugar, unsalted butter, lemon juice, cinnamn, nutmeg",
                         description: "Sweet and juicy with plenty of real peach flavor and just the right touch of cinnamon.",
                         dish_type: "Desserts")
-file = URI.open("https://bing.com/th?id=OSK.187951fc01deab3040b433e7af881bc0")
+file = URI.open("https://i.pinimg.com/originals/58/f9/6f/58f96fc9c3e5bd4de8a079e88614f750.jpg")
 product13.photo.attach(io: file, filename: "13.jpg", content_type: "image/jpg")
 product13.restaurant = restaurant1
 product13.save
@@ -228,7 +229,7 @@ product13.save
 product14 = Product.new(name: "red wine",
                         price: 9.00,
                         dish_type: "Wines")
-file = URI.open("https://th.bing.com/th/id/R.6362a4d8101bd26a0fc75413d674744b?rik=2E%2fIKOB2yIG%2f6A&riu=http%3a%2f%2fregrounding.files.wordpress.com%2f2011%2f06%2fred_wine.jpg&ehk=2Y9a6StVLW%2bwNqnffiEm0%2bZL9zab9l%2b9g8UG%2bkOPAo0%3d&risl=&pid=ImgRaw&r=0")
+file = URI.open("https://img.buzzfeed.com/buzzfeed-static/static/2017-06/26/10/asset/buzzfeed-prod-fastlane-01/sub-buzz-28795-1498486984-1.jpg")
 product14.photo.attach(io: file, filename: "14.jpg", content_type: "image/jpg")
 product14.restaurant = restaurant1
 product14.save
@@ -236,7 +237,7 @@ product14.save
 product15 = Product.new(name: "White wine",
   price: 8.00,
   dish_type: "Wines")
-file = URI.open("https://th.bing.com/th/id/R.c30d1b9735aa0948f8499a7eb35c8d69?rik=G9PbUHpACmp0uA&riu=http%3a%2f%2fkazzit.com%2fcustom%2fdomain_1%2fimage_files%2fsitemgr_whitewinedry2.jpg&ehk=XItoJzw34uvTEMvwlJscSwb9eTxGgayvQsuaikMpJT0%3d&risl=&pid=ImgRaw&r=0")
+file = URI.open("https://th.bing.com/th/id/OIP.txs-yHf96Gp8vuK0wFFGugAAAA?pid=ImgDet&rs=1")
 product15.photo.attach(io: file, filename: "15.jpg", content_type: "image/jpg")
 product15.restaurant = restaurant1
 product15.save
@@ -244,7 +245,7 @@ product15.save
 product16 = Product.new(name: "Rose wine",
   price: 8.00,
    dish_type: "Wines")
-file = URI.open("https://th.bing.com/th/id/R.bdeeefc731f1ebca3c4f351346c7ee3f?rik=Lu0TdpjDHvCveg&pid=ImgRaw&r=0")
+file = URI.open("https://img.freepik.com/free-photo/rose-wine-different-glasses-gray-concrete-background-minimal-wine-still-life-composition_221542-1863.jpg?w=2000")
 product16.photo.attach(io: file, filename: "16.jpg", content_type: "image/jpg")
 product16.restaurant = restaurant1
 product16.save
@@ -252,7 +253,7 @@ product16.save
 product22 = Product.new(name: "Tonic Water",
   price: 5.00,
    dish_type: "Soft drinks")
-file = URI.open("https://th.bing.com/th/id/R.5dc1d6cb2860b4fffa3ac741e9eeabee?rik=g1hpyOB5fUwXlA&riu=http%3a%2f%2fwww.sakshamimpex.com%2fsaksham2015%2fwp-content%2fuploads%2f2015%2f10%2fFever-Tree_BLACK_Cocktail_Indian-Tonic_RGB.jpg&ehk=jOXbUzaSdc%2fiZFkbIvhL%2bvfBIb2ZVtWOw%2fwRw%2fDxiFc%3d&risl=&pid=ImgRaw&r=0")
+file = URI.open("https://i.pinimg.com/736x/62/c8/2f/62c82f7b98a0235af9fe79f70dd59aee.jpg")
 product22.photo.attach(io: file, filename: "22.jpg", content_type: "image/jpg")
 product22.restaurant = restaurant1
 product22.save
@@ -268,7 +269,7 @@ product23.save
 product24 = Product.new(name: "Dr Pepper",
   price: 12.00,
    dish_type: "Soft drinks")
-file = URI.open("https://th.bing.com/th/id/R.e70ebe79b004b2222ba864017d7056b2?rik=KyiVr3sBtAGzJQ&pid=ImgRaw&r=0")
+file = URI.open("https://fastfoodnutrition.org/item-photos/768x640/8633_s.jpg")
 product24.photo.attach(io: file, filename: "24.jpg", content_type: "image/jpg")
 product24.restaurant = restaurant1
 product24.save
@@ -276,7 +277,7 @@ product24.save
 product25 = Product.new(name: "Ginger Ale",
   price: 12.00,
    dish_type: "Soft drinks")
-file = URI.open("https://i1.wp.com/readynutrition.com/wp-content/uploads/2015/01/gingerale.jpg?ssl=1")
+file = URI.open("https://www.1001cocktails.com/wp-content/uploads/1001cocktails/2023/03/85006_origin-scaled.jpg")
 product25.photo.attach(io: file, filename: "25.jpg", content_type: "image/jpg")
 product25.restaurant = restaurant1
 product25.save
