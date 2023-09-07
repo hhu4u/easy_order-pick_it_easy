@@ -2,7 +2,7 @@
 
 <div class="container">
   <% @tables.each do |table| %>
-    <p><%= table.number %></p>
-    <%= table.qr_code.html_safe %>
+    <p class="mt-5"><%= "Table #{table.number}" %></p>
+    <div><%= table.qr_code.html_safe %></div>
   <% end %>
 </div>
