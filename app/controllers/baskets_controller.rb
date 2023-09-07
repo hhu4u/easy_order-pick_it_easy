@@ -4,6 +4,11 @@ class BasketsController < ApplicationController
     @table = @basket.table
     @restaurant = @table.restaurant
     @orders = Order.where(basket: @basket)
+    @total = 0
+    @orders.each do |order|
+      @total += order.product.price
+    end
+    @total = "Pay #{@total} €"
   end
 
   def index
