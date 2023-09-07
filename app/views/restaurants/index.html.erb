@@ -9,7 +9,7 @@
               <h4 class="text-dark me-auto"><%= restaurant.name %></h4>
             </div>
             <div class="text-dark ms-3 pe-3 pb-1"><p><%= restaurant.address %></p></div>
-            <div class="btn btn-dark w-75 ms-3 pe-3"> <%= link_to "Generate QR Codes", new_restaurant_table_path(restaurant), class: "text-white" %></div>
+            <div class="btn btn-dark mt-2 ms-3 pe-3 py-1"> <%= link_to "QR Codes", new_restaurant_table_path(restaurant), class: "text-white" %></div>
           </div>
           <%= link_to restaurant_path(restaurant) do %>
             <% if restaurant.photo.attached? %>
