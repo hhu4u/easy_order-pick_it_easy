@@ -97,8 +97,8 @@ dish_type: "Main Courses")
 # file = URI.open("https://www.thecookierookie.com/wp-content/uploads/2023/04/featured-stovetop-burgers-recipe.jpg")
 # file = URI.open("https://wallpapercave.com/wp/wp1987065.jpg")
 # file = URI.open("https://images.unsplash.com/photo-1550547660-d9450f859349?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1965&q=80.jpg")
-local_main_image_path = Rails.root.join('app','assets','images','test.jpg')
-local_thumb_image_path = Rails.root.join('app','assets','images','logo.jpg')
+local_main_image_path = Rails.root.join('app','assets','images','4.jpg')
+local_thumb_image_path = Rails.root.join('app','assets','images','4th.jpg')
 main = File.open(local_main_image_path)
 thumb = File.open(local_thumb_image_path)
 product1.photo.attach(io: main, filename: "1.jpg", content_type: "image/jpg")
@@ -305,8 +305,13 @@ product17 = Product.new(name: "Margarita",
   price: 9.00,
   ingredients: "Tequila, lime juice, orange liqueur (such as triple sec or Cointreau), and optionally, a salted rim.",
   dish_type: "Cocktails")
-file = URI.open("https://delicerecipes.com/wp-content/uploads/2021/01/Frozen-Margarita-Cocktail.jpg")
-product17.photo.attach(io: file, filename: "17.jpg", content_type: "image/jpg")
+# file = URI.open("https://delicerecipes.com/wp-content/uploads/2021/01/Frozen-Margarita-Cocktail.jpg")
+local_main_image_path = Rails.root.join('app','assets','images','6.jpg')
+local_thumb_image_path = Rails.root.join('app','assets','images','6th.jpg')
+main = File.open(local_main_image_path)
+thumb = File.open(local_thumb_image_path)
+product17.photo.attach(io: main, filename: "17.jpg", content_type: "image/jpg")
+product17.thumbnail.attach(io: thumb, filename: "17th.jpg", content_type: "image/jpg")
 product17.restaurant = restaurant2
 product17.save
 
@@ -314,8 +319,13 @@ product18 = Product.new(name: "Martini",
   price: 12.00,
   ingredients: "Vodka, vermouth, and sometimes garnished with an olive or lemon twist.",
   dish_type: "Cocktails")
-file = URI.open("https://th.bing.com/th/id/OIP.9cRJxikcOOmYhn_bi9fdiwHaLF?pid=ImgDet&rs=1")
-product18.photo.attach(io: file, filename: "18.jpg", content_type: "image/jpg")
+# file = URI.open("https://th.bing.com/th/id/OIP.9cRJxikcOOmYhn_bi9fdiwHaLF?pid=ImgDet&rs=1")
+local_main_image_path = Rails.root.join('app','assets','images','5.jpg')
+local_thumb_image_path = Rails.root.join('app','assets','images','5th.jpg')
+main = File.open(local_main_image_path)
+thumb = File.open(local_thumb_image_path)
+product18.photo.attach(io: main, filename: "18.jpg", content_type: "image/jpg")
+product18.thumbnail.attach(io: thumb, filename: "18th.jpg", content_type: "image/jpg")
 product18.restaurant = restaurant2
 product18.save
 
@@ -323,8 +333,13 @@ product19 = Product.new(name: "Moscow Mule",
   price: 9.00,
   ingredients: "Vodka, ginger beer, and lime juice, often garnished with a lime wedge.",
    dish_type: "Cocktails")
-file = URI.open("https://i.pinimg.com/originals/6c/53/78/6c5378104581dec54026d13e703c3dad.jpg")
-product19.photo.attach(io: file, filename: "19.jpg", content_type: "image/jpg")
+# file = URI.open("https://i.pinimg.com/originals/6c/53/78/6c5378104581dec54026d13e703c3dad.jpg")
+local_main_image_path = Rails.root.join('app','assets','images','7.jpg')
+local_thumb_image_path = Rails.root.join('app','assets','images','7th.jpg')
+main = File.open(local_main_image_path)
+thumb = File.open(local_thumb_image_path)
+product19.photo.attach(io: main, filename: "19.jpg", content_type: "image/jpg")
+product19.thumbnail.attach(io: thumb, filename: "19th.jpg", content_type: "image/jpg")
 product19.restaurant = restaurant2
 product19.save
 
@@ -332,8 +347,13 @@ product20 = Product.new(name: "Mojito",
   price: 10.00,
   ingredients: "White rum, fresh mint leaves, lime juice, simple syrup, soda water, and plenty of ice.",
    dish_type: "Cocktails")
-file = URI.open("https://th.bing.com/th/id/R.b61e87af03c84452e4aeaa38b65a2f89?rik=pmpvRnJhh0svDA&pid=ImgRaw&r=0")
-product20.photo.attach(io: file, filename: "20.jpg", content_type: "image/jpg")
+# file = URI.open("https://th.bing.com/th/id/R.b61e87af03c84452e4aeaa38b65a2f89?rik=pmpvRnJhh0svDA&pid=ImgRaw&r=0")
+local_main_image_path = Rails.root.join('app','assets','images','1.jpg')
+local_thumb_image_path = Rails.root.join('app','assets','images','1th.jpg')
+main = File.open(local_main_image_path)
+thumb = File.open(local_thumb_image_path)
+product20.photo.attach(io: main, filename: "20.jpg", content_type: "image/jpg")
+product20.thumbnail.attach(io: thumb, filename: "20th.jpg", content_type: "image/jpg")
 product20.restaurant = restaurant2
 product20.save
 
@@ -341,8 +361,13 @@ product21 = Product.new(name: "Cosmopolitan",
   price: 12.00,
   ingredients: "Vodka, cranberry juice, orange liqueur, and freshly squeezed lime juice.",
    dish_type: "Cocktails")
-file = URI.open("https://i.pinimg.com/originals/ec/69/32/ec69320a94b481e7650f7ff71d77ffc5.jpg")
-product21.photo.attach(io: file, filename: "21.jpg", content_type: "image/jpg")
+# file = URI.open("https://i.pinimg.com/originals/ec/69/32/ec69320a94b481e7650f7ff71d77ffc5.jpg")
+local_main_image_path = Rails.root.join('app','assets','images','2.jpg')
+local_thumb_image_path = Rails.root.join('app','assets','images','2th.jpg')
+main = File.open(local_main_image_path)
+thumb = File.open(local_thumb_image_path)
+product21.photo.attach(io: main, filename: "21.jpg", content_type: "image/jpg")
+product21.thumbnail.attach(io: thumb, filename: "21th.jpg", content_type: "image/jpg")
 product21.restaurant = restaurant2
 product21.save
 
