@@ -17,13 +17,13 @@
   <div class="d-flex justify-content-between">
     <div class="d-flex justify-content-start">
       <h1 class="pt-3 pb-1 lh-1"><%= @restaurant.name %></h1>
-      <% if @restaurant.user == current_user %>
-        <div class="icon pt-1">
-          <%= link_to edit_restaurant_path(@restaurant) do %>
-            <i class="fa-regular fa-pen-to-square fa-lg px-4 pt-4" style="color: #000000;"></i>
-          <% end %>
-        </div>
-      <% end %>
+      <%# <% if @restaurant.user == current_user %>
+        <%# <div class="icon pt-1"> %>
+          <%# <%= link_to edit_restaurant_path(@restaurant) do %>
+            <%# <i class="fa-regular fa-pen-to-square fa-lg px-4 pt-4" style="color: #000000;"></i> %>
+          <%# <% end %>
+        <%# </div> %>
+      <%# <% end %>
     </div>
       <% if current_user.restaurants.any? %>
         <% if current_user.restaurants.include?(@restaurant)  %>
