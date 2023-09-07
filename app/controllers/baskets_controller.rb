@@ -8,7 +8,10 @@ class BasketsController < ApplicationController
 
   def index
     @baskets = Basket.where(user: current_user)
-    @orders = Order.where(basket: @basket)
+    @basket_exists = false
+    @baskets.each do |basket|
+      @basket_exists = true if basket.basket_status == "closed"
+    end
   end
 
   def confirm_basket
