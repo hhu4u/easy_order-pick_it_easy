@@ -94,8 +94,12 @@ dish_type: "Main Courses")
 # file = URI.open("https://www.thecookierookie.com/wp-content/uploads/2023/04/featured-stovetop-burgers-recipe.jpg")
 # file = URI.open("https://wallpapercave.com/wp/wp1987065.jpg")
 # file = URI.open("https://images.unsplash.com/photo-1550547660-d9450f859349?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1965&q=80.jpg")
-file = URI.open("https://resize-elle.ladmedia.fr/rcrop/638,,forcex/img/var/plain_site/storage/images/elle-a-table/les-dossiers-de-la-redaction/dossier-de-la-redac/hamburger-maison/94060670-1-fre-FR/Comment-preparer-le-meilleur-hamburger-maison-du-monde.jpg")
-product1.photo.attach(io: file, filename: "1.jpg", content_type: "image/jpg")
+local_main_image_path = Rails.root.join('app','assets','images','test.jpg')
+local_thumb_image_path = Rails.root.join('app','assets','images','logo.jpg')
+main = File.open(local_main_image_path)
+thumb = File.open(local_thumb_image_path)
+product1.photo.attach(io: main, filename: "1.jpg", content_type: "image/jpg")
+product1.thumbnail.attach(io: thumb, filename: "1th.jpg", content_type: "image/jpg")
 product1.restaurant = restaurant1
 product1.save
 
