@@ -7,9 +7,9 @@ class RestaurantsController < ApplicationController
   def show
     @current_basket = Basket.where(user: current_user, basket_status: "New").first
 
-    if params[:basket].present? && current_basket.present?
-        user = current_basket.user
-        current_basket.destroy
+    if params[:basket].present? && @current_basket.present?
+        user = @current_basket.user
+        @current_basket.destroy
         @current_basket = Basket.new
         @current_basket.table = Table.find(params[:table])
         @current_basket.user = user
