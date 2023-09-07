@@ -2,7 +2,7 @@
   <% if @basket.orders.count.positive? %>
     <%= form_with(url: confirm_path(@basket), html: {class: "w-100"}) do %>
       <%= hidden_field_tag 'table_id', @table.id %>
-      <%= submit_tag 'Pay', class: 'btn btn-dark', id: 'pay' %>
+      <%= submit_tag @total, class: 'btn btn-dark', id: 'pay' %>
     <% end %>
   <% end %>
 </div>
