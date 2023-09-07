@@ -12,6 +12,7 @@
       <%= f.input :ingredients %>
       <%= f.input :dish_type, collection: Product::DISH_TYPE %>
       <%= f.input :photo, as: :file %>
+      <%= f.input :thumbnail, as: :file %>
       <%= f.submit "Confirm", class: "btn btn-primary" %>
     <% end %>
 </div>
