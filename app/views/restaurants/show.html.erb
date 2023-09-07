@@ -16,18 +16,18 @@
 <div class="container">
   <div class="d-flex justify-content-between">
     <div class="d-flex justify-content-start">
-      <h1 class="pt-3 lh-1"><%= @restaurant.name %></h1>
-      <% if @restaurant.user == current_user %>
-        <div class="icon pl-4">
-          <%= link_to edit_restaurant_path(@restaurant) do %>
-            <i class="fa-regular fa-pen-to-square fa-lg px-4 pt-4" style="color: #000000;"></i>
-          <% end %>
-        </div>
-      <% end %>
+      <h1 class="pt-3 pb-1 lh-1"><%= @restaurant.name %></h1>
+      <%# <% if @restaurant.user == current_user %>
+        <%# <div class="icon pt-1"> %>
+          <%# <%= link_to edit_restaurant_path(@restaurant) do %>
+            <%# <i class="fa-regular fa-pen-to-square fa-lg px-4 pt-4" style="color: #000000;"></i> %>
+          <%# <% end %>
+        <%# </div> %>
+      <%# <% end %>
     </div>
       <% if current_user.restaurants.any? %>
         <% if current_user.restaurants.include?(@restaurant)  %>
-          <div class="icons pt-3">
+          <div class="icons pt-1">
             <%= link_to new_restaurant_product_path(@restaurant) do %>
               <i class="fa-solid fa-circle-plus pt-4 pr-3 fa-2xl" style="color: #000000;" ></i>
             <% end %>
@@ -35,7 +35,7 @@
         <% end %>
       <% end %>
   </div>
-  <p class="fw-light lh-1"><%= @restaurant.address %></p>
+  <%# <p class="fw-light lh-1"><%= @restaurant.address </p> %>
 </div>
 <div class="container" data-controller="refresh-list">
   <div class="container-search">
@@ -58,6 +58,6 @@
         <% end %>
       <% end %>
     </div>
-    <%= render 'products/products_list', restaurant: @restaurant, products: @products %>
+    <%= render 'products/products_list', restaurant: @restaurant, products: @products, user: @restaurant.user %>
   </div>
 </div>
