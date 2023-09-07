@@ -11,13 +11,15 @@
             <div class="ms-3 pe-3 pb-3"><p><%= restaurant.address %></p></div>
             <div class="ms-3 pe-3 pb-3"> <%= link_to "Generate QR Codes", new_restaurant_table_path(restaurant) %></div>
           </div>
-          <% if restaurant.photo.attached? %>
-            <%= cl_image_tag restaurant.photo.key, width: 400, height: 300, crop: :fill %>
-          <% else %>
-            <%=  image_tag "https://t4.ftcdn.net/jpg/03/08/68/19/360_F_308681935_VSuCNvhuif2A8JknPiocgGR2Ag7D1ZqN.jpg" %>
+          <%= link_to restaurant_path(restaurant) do %>
+            <% if restaurant.photo.attached? %>
+              <%= cl_image_tag restaurant.photo.key, width: 400, height: 300, crop: :fill %>
+            <% else %>
+              <%=  image_tag "https://t4.ftcdn.net/jpg/03/08/68/19/360_F_308681935_VSuCNvhuif2A8JknPiocgGR2Ag7D1ZqN.jpg" %>
+            <% end %>
           <% end %>
         </div>
-       <% end %>
+      <% end %>
     <% end %>
   </div>
 </div>
