@@ -1,6 +1,6 @@
-<div class="container d-flex flex-columns justify-content-center align-items-center">
+<div style="height: 100vh;" class="container d-flex flex-columns justify-content-center align-items-center">
   <%= simple_form_for [@restaurant, @table] do |f| %>
     <%= f.input :number, label: false, placeholder: "Enter table number" %>
-    <%= f.submit "Create QR", class: "btn btn-dark" %>
+    <%= f.submit "Create QR", class: "btn btn-dark w-100" %>
   <% end %>
 </div>
