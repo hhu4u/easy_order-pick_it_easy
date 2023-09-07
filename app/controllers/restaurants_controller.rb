@@ -10,7 +10,7 @@ class RestaurantsController < ApplicationController
     if params[:basket].present? && current_basket.present?
         current_basket.destroy
         current_basket = Basket.new
-        current_basket.table = params[:table]
+        current_basket.table = Table.find(params[:table])
         current_basket.user = current_user
         current_basket.status = "New"
         current_basket.save!
