@@ -12,6 +12,7 @@
     <%= javascript_importmap_tags %>
     <meta name="turbo-visit-control" content="reload">
     <link rel="stylesheet" href="https://ga.jspm.io/npm:star-rating.js@4.3.0/dist/star-rating.css">
+    <%= favicon_link_tag "favicon.png", rel: "icon", type: "image/png" %>
   </head>
   <body>
     <% unless current_page?(root_path) %>
