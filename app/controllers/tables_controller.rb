@@ -2,6 +2,8 @@ class TablesController < ApplicationController
   before_action :set_restaurant, only: [:new, :create, :index]
   def index
     @tables = Table.where(restaurant: @restaurant)
+    @tables = @tables.sort_by { |table| table.number}
+    @tables.reverse!
   end
 
   def new
@@ -31,6 +33,7 @@ class TablesController < ApplicationController
     qr = RQRCode::QRCode.new("https://www.pickiteasy.me/restaurants/#{@restaurant.id}/?table=#{@table.id}&basket=new")
     @svg = qr.as_svg(
       offset: 0,
+      module_size: 7,
       color: '000',
       shape_rendering: 'crispEdges',
       standalone: true

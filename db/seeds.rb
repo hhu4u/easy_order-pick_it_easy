@@ -58,6 +58,7 @@ i = 1
   qr = RQRCode::QRCode.new("https://www.pickiteasy.me/restaurants/#{restaurant1.id}/?table=#{table.id}&basket=new")
   @svg = qr.as_svg(
     offset: 0,
+    module_size: 7,
     color: '000',
     shape_rendering: 'crispEdges',
     standalone: true
@@ -76,6 +77,7 @@ i = 1
   qr = RQRCode::QRCode.new("https://www.pickiteasy.me/restaurants/#{restaurant2.id}/?table=#{table.id}&basket=new")
   @svg = qr.as_svg(
     offset: 0,
+    module_size: 7,
     color: '000',
     shape_rendering: 'crispEdges',
     standalone: true

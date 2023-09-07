@@ -14,12 +14,12 @@
           <h4><%= order.product.price %> €</h4>
         </div>
         <div class="ms-3 pe-3 pb-3">
-          <p><%= order.product.ingredients %></p>
-          <% unless order.comments.empty? %>
-            <p>Your preferences :</p>
+          <%# <p><%= order.product.ingredients </p> %>
+          <%# <% unless order.comments.empty? %>
+            <%# <p>Your preferences :</p> %>
             <%# <p><%= order.product.description </p> %>
-            <p><%= order.comments %></p>
-          <% end %>
+            <%# <p><%= order.comments </p> %>
+          <%# <% end %>
           <% if order.review.nil? %>
             <div class="rating pt-3">
               <%= simple_form_for [@restaurant,order.product, order, @review],  data: { controller: "form-submit", action: "click->form-submit#submit" } do |f| %>
