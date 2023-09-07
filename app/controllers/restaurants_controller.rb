@@ -16,8 +16,6 @@ class RestaurantsController < ApplicationController
         current_basket.save!
     end
 
-    raise
-
     @basket = current_basket
     @table = current_basket.table
     @products = @restaurant.products
