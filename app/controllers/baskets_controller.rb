@@ -7,11 +7,7 @@ class BasketsController < ApplicationController
   end
 
   def index
-    @baskets = Basket.where(user: current_user)
-    @basket_exists = false
-    @baskets.each do |basket|
-      @basket_exists = true if basket.basket_status == "closed"
-    end
+    @baskets = Basket.where(user: current_user, basket_status: "closed")
   end
 
   def confirm_basket
