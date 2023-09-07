@@ -2,7 +2,7 @@
   <h1>My orders</h1>
 </div>
 <div class="container baskets pt-5">
-  <% if @basket_exists %>
+  <% if @baskets.any? %>
     <% @baskets.each do |basket| %>
       <%= link_to basket_orders_path(basket) do %>
         <div class="d-flex order-card">
