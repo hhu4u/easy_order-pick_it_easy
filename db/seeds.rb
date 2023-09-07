@@ -55,7 +55,7 @@ i = 1
   table = Table.new(number: i)
   table.restaurant = restaurant1
   table.save
-  qr = RQRCode::QRCode.new("https://www.pickiteasy.me/restaurants/#{restaurant1.id}/?table=#{table.id}")
+  qr = RQRCode::QRCode.new("https://www.pickiteasy.me/restaurants/#{restaurant1.id}/?table=#{table.id}&basket=new")
   @svg = qr.as_svg(
     offset: 0,
     color: '000',
@@ -73,7 +73,7 @@ i = 1
   table = Table.new(number: i)
   table.restaurant = restaurant2
   table.save
-  qr = RQRCode::QRCode.new("https://www.pickiteasy.me/restaurants/#{restaurant2.id}/?table=#{table.id}")
+  qr = RQRCode::QRCode.new("https://www.pickiteasy.me/restaurants/#{restaurant2.id}/?table=#{table.id}&basket=new")
   @svg = qr.as_svg(
     offset: 0,
     color: '000',

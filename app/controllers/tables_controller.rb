@@ -28,7 +28,7 @@ class TablesController < ApplicationController
   end
 
   def generate_qr_code
-    qr = RQRCode::QRCode.new("https://www.pickiteasy.me/restaurants/#{@restaurant.id}/?table=#{@table.id}")
+    qr = RQRCode::QRCode.new("https://www.pickiteasy.me/restaurants/#{@restaurant.id}/?table=#{@table.id}&basket=new")
     @svg = qr.as_svg(
       offset: 0,
       color: '000',
